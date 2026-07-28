@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08111f">
+  <title>知识库 · 网络结构指南</title>
+  <style>
+    :root {
+      --ink: #eaf2ff;
+      --muted: #98a7bd;
+      --line: rgba(190, 215, 255, .15);
+      --blue: #79b7ff;
+      --cyan: #69ecd3;
+      --paper: #08111f;
+      --panel: rgba(14, 29, 50, .64);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-width: 320px;
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 81% 13%, rgba(61, 134, 255, .20), transparent 23rem),
+        radial-gradient(circle at 20% 83%, rgba(44, 211, 180, .12), transparent 25rem),
+        var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+
+    .shell {
+      position: relative;
+      min-height: 100svh;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .shell::before {
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      content: "";
+      opacity: .28;
+      background-image: linear-gradient(rgba(167, 196, 236, .12) 1px, transparent 1px), linear-gradient(90deg, rgba(167, 196, 236, .12) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black, transparent 83%);
+    }
+
+    .shell::after {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      content: "";
+      background: linear-gradient(90deg, var(--paper) 0%, transparent 42%, transparent 76%, var(--paper) 100%);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 28px 0;
+    }
+
+    .brand, .status { display: flex; align-items: center; gap: 11px; }
+
+    .brand-mark {
+      display: grid;
+      width: 30px;
+      height: 30px;
+      place-items: center;
+      border: 1px solid rgba(128, 190, 255, .8);
+      border-radius: 9px;
+      color: var(--cyan);
+      background: rgba(105, 236, 211, .08);
+      box-shadow: 0 0 26px rgba(105, 236, 211, .10);
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .brand-name { letter-spacing: .02em; font-size: 14px; font-weight: 650; }
+    .brand-name span { color: var(--muted); font-weight: 500; }
+
+    .status {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .06em;
+    }
+
+    .pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 0 5px rgba(105, 236, 211, .12), 0 0 19px var(--cyan);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(300px, .95fr);
+      align-items: center;
+      gap: clamp(44px, 8vw, 120px);
+      width: min(1180px, calc(100% - 48px));
+      min-height: calc(100svh - 96px);
+      margin: 0 auto;
+      padding: 40px 0 88px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 26px;
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: .17em;
+    }
+
+    .eyebrow::before { width: 24px; height: 1px; content: ""; background: currentColor; }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      color: #f4f8ff;
+      font-size: clamp(45px, 6vw, 82px);
+      font-weight: 730;
+      letter-spacing: -.065em;
+      line-height: .98;
+    }
+
+    h1 em {
+      color: #82bdff;
+      font-style: normal;
+      text-shadow: 0 0 28px rgba(89, 164, 255, .24);
+    }
+
+    .intro {
+      max-width: 540px;
+      margin: 28px 0 0;
+      color: #b7c5d8;
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 38px; }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      border-radius: 9px;
+      color: #061220;
+      background: linear-gradient(135deg, #9dd5ff, #62efcf);
+      box-shadow: 0 12px 26px rgba(51, 143, 238, .16);
+      font-size: 14px;
+      font-weight: 750;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .button:hover { transform: translateY(-2px); box-shadow: 0 15px 32px rgba(51, 143, 238, .29); }
+    .button.secondary { color: #c9dbf2; border-color: var(--line); background: rgba(16, 35, 60, .52); box-shadow: none; }
+
+    .note { margin: 22px 0 0; color: #7d90aa; font-size: 12px; }
+
+    .map {
+      position: relative;
+      display: grid;
+      min-height: 474px;
+      place-items: center;
+    }
+
+    .orbit, .orbit::before, .orbit::after {
+      position: absolute;
+      border: 1px solid rgba(134, 192, 255, .18);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .orbit { width: 424px; height: 424px; box-shadow: inset 0 0 60px rgba(65, 157, 255, .04); }
+    .orbit::before { inset: 48px; }
+    .orbit::after { inset: 103px; border-color: rgba(105, 236, 211, .25); }
+
+    .axis { position: absolute; width: 508px; height: 1px; background: linear-gradient(90deg, transparent, rgba(142, 200, 255, .32), transparent); transform: rotate(-32deg); }
+    .axis.two { transform: rotate(48deg); opacity: .7; }
+
+    .core {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      width: 156px;
+      height: 156px;
+      place-items: center;
+      border: 1px solid rgba(157, 211, 255, .55);
+      border-radius: 27px;
+      background: linear-gradient(135deg, rgba(26, 62, 105, .88), rgba(10, 28, 51, .84));
+      box-shadow: 0 0 0 13px rgba(83, 160, 255, .04), 0 0 70px rgba(66, 147, 255, .24);
+      transform: rotate(8deg);
+    }
+
+    .core-inner { text-align: center; transform: rotate(-8deg); }
+    .core b { display: block; color: #f5f9ff; font-size: 20px; letter-spacing: -.05em; }
+    .core small { display: block; margin-top: 8px; color: #8dbde9; font-size: 10px; font-weight: 700; letter-spacing: .18em; }
+
+    .node {
+      position: absolute;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 11px;
+      border: 1px solid rgba(164, 203, 250, .19);
+      border-radius: 8px;
+      color: #c4d7ed;
+      background: rgba(9, 25, 45, .78);
+      box-shadow: 0 13px 30px rgba(0, 0, 0, .16);
+      font-size: 11px;
+      white-space: nowrap;
+      backdrop-filter: blur(10px);
+      animation: drift 5s ease-in-out infinite;
+    }
+
+    .node::before { width: 6px; height: 6px; border-radius: 50%; content: ""; background: #80baff; box-shadow: 0 0 12px #80baff; }
+    .n1 { top: 11%; left: 3%; animation-delay: -1.7s; }
+    .n2 { top: 20%; right: 0; animation-delay: -3.1s; }
+    .n3 { bottom: 15%; right: 6%; animation-delay: -.8s; }
+    .n4 { bottom: 11%; left: 8%; animation-delay: -2.4s; }
+    .n4::before { background: var(--cyan); box-shadow: 0 0 12px var(--cyan); }
+
+    .index-card {
+      position: absolute;
+      right: 1%;
+      bottom: -6px;
+      width: min(298px, 75%);
+      padding: 17px;
+      border: 1px solid rgba(167, 205, 255, .16);
+      border-radius: 12px;
+      background: rgba(8, 21, 38, .78);
+      box-shadow: 0 24px 52px rgba(0, 0, 0, .25);
+      backdrop-filter: blur(14px);
+    }
+
+    .index-card header { display: flex; align-items: center; justify-content: space-between; padding-bottom: 13px; border-bottom: 1px solid var(--line); color: #8ba3bf; font-size: 10px; font-weight: 700; letter-spacing: .13em; }
+    .index-card header b { color: var(--cyan); font-size: 11px; }
+    .index-card ol { display: grid; gap: 10px; margin: 14px 0 0; padding: 0; list-style: none; counter-reset: topic; }
+    .index-card li { display: flex; align-items: center; justify-content: space-between; color: #d5e3f3; font-size: 12px; counter-increment: topic; }
+    .index-card li::before { width: 22px; content: "0" counter(topic); color: #6697ce; font-size: 10px; font-variant-numeric: tabular-nums; }
+    .index-card li::after { width: 4px; height: 4px; border-radius: 50%; content: ""; background: #5e83ab; }
+
+    footer {
+      position: absolute;
+      right: max(24px, calc((100% - 1180px) / 2));
+      bottom: 23px;
+      left: max(24px, calc((100% - 1180px) / 2));
+      display: flex;
+      justify-content: space-between;
+      color: #7388a2;
+      font-size: 11px;
+      letter-spacing: .06em;
+    }
+
+    @keyframes drift { 50% { transform: translateY(-8px); } }
+
+    @media (max-width: 780px) {
+      .topbar { width: min(100% - 32px, 1180px); padding: 20px 0; }
+      .status { display: none; }
+      main { grid-template-columns: 1fr; width: min(100% - 32px, 1180px); min-height: unset; padding: 68px 0 105px; }
+      .map { min-height: 390px; margin-top: -10px; transform: scale(.9); transform-origin: center top; }
+      h1 { font-size: clamp(44px, 13vw, 66px); }
+      footer { left: 16px; right: 16px; }
+    }
+
+    @media (max-width: 440px) {
+      .map { transform: scale(.71); margin: -50px 0 -78px; }
+      .orbit { width: 424px; height: 424px; }
+      .index-card { right: -18px; }
+      .actions { display: grid; grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">K</span><span class="brand-name">Knowledge Base <span>/ 01</span></span></div>
+      <div class="status"><span class="pulse"></span>持续更新中 · 2026</div>
+    </header>
+
+    <main>
+      <section class="copy" aria-labelledby="title">
+        <p class="eyebrow">CURATED INTELLIGENCE</p>
+        <h1 id="title">把复杂，<br>变成<em>清晰的路径</em>。</h1>
+        <p class="intro">这是一个为持续学习而建的知识空间。沉淀方法、连接观点、记录可复用的经验，帮助你从信息的噪声中找到下一步。</p>
+        <div class="actions">
+          <a class="button" href="#catalog">进入知识库&nbsp; →</a>
+          <a class="button secondary" href="#about">查看使用说明</a>
+        </div>
+        <p class="note" id="about">从一个问题开始，沿着关联知识继续探索。</p>
+      </section>
+
+      <section class="map" id="catalog" aria-label="知识网络索引">
+        <div class="orbit"></div><div class="axis"></div><div class="axis two"></div>
+        <div class="node n1">思考模型</div>
+        <div class="node n2">实战方法</div>
+        <div class="node n3">工具与资源</div>
+        <div class="node n4">学习笔记</div>
+        <div class="core"><div class="core-inner"><b>知识网络</b><small>KNOWLEDGE MAP</small></div></div>
+        <aside class="index-card" aria-label="热门主题">
+          <header><span>EXPLORE TOPICS</span><b>04</b></header>
+          <ol><li>认知与决策</li><li>AI 与工作流</li><li>写作与表达</li><li>产品与增长</li></ol>
+        </aside>
+      </section>
+    </main>
+
+    <footer><span>PERSONAL KNOWLEDGE SYSTEM</span><span>© 2026</span></footer>
+  </div>
+</body>
+</html>
