@@ -1,0 +1,9 @@
+[
+ {
+  "slug": "inference-engine",
+  "title": "推理引擎：模型对外提供服务的那一层",
+  "summary": "推理引擎是把训练好的模型跑起来、接住用户提问并吐出答案的那套程序",
+  "track": "ai-basics",
+  "updated": "2026-08-01"
+ }
+]
