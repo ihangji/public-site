@@ -19,12 +19,5 @@
   "summary": "模型把算过的中间结果存起来重复用，生成更快，代价是占显卡内存，对话越长占得越多",
   "track": "ai-basics",
   "updated": "2026-08-01"
- },
- {
-  "slug": "what-is-inference-engine",
-  "title": "什么是推理引擎",
-  "summary": "把训练好的模型跑起来对外提供服务的那套程序",
-  "track": "ai-basics",
-  "updated": "2026-07-31"
  }
 ]
