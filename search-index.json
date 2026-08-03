@@ -21,9 +21,9 @@
   "updated": "2026-08-01"
  },
  {
-  "slug": "longe2v-event-video-generation",
-  "title": "事件相机视频生成：LongE2V 如何把变化记录变回画面",
-  "summary": "事件相机只记录画面变化，AI 模型能把它变回清晰视频。",
+  "slug": "longe2v-event-camera-video-diffusion",
+  "title": "事件相机视频重建：用零散变化记录补出完整画面",
+  "summary": "事件相机只记变化，视频扩散模型用它补出完整视频，一架构三任务",
   "track": "ai-basics",
   "updated": "2026-08-03"
  }
