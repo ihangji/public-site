@@ -21,6 +21,13 @@
   "updated": "2026-08-03"
  },
  {
+  "slug": "what-is-token",
+  "title": "\"Token 是什么\"",
+  "summary": "\"模型处理文本的最小计费单位，一个 token 大约对应一个汉字。\"",
+  "track": "ai-basics",
+  "updated": "2026-08-03"
+ },
+ {
   "slug": "startup-basics",
   "title": "创业公司是什么，为什么重要",
   "summary": "创业公司是快速验证新想法的小团队，用有限资源追求高增长。",
