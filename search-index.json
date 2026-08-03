@@ -4,21 +4,21 @@
   "title": "首字延迟与吞吐",
   "summary": "首字延迟指一个用户等第一个字的时间，和系统总产字量不是一回事。",
   "track": "ai-basics",
-  "updated": "2026-08-01"
+  "updated": "2026-08-03"
  },
  {
   "slug": "inference-engine",
   "title": "推理引擎：模型对外提供服务的那一层",
   "summary": "推理引擎是把训练好的模型跑起来、接住用户提问并吐出答案的那套程序",
   "track": "ai-basics",
-  "updated": "2026-08-01"
+  "updated": "2026-08-03"
  },
  {
   "slug": "kv-cache",
   "title": "推理里的 KV Cache",
   "summary": "模型把算过的中间结果存起来重复用，生成更快，代价是占显卡内存，对话越长占得越多",
   "track": "ai-basics",
-  "updated": "2026-08-01"
+  "updated": "2026-08-03"
  },
  {
   "slug": "longe2v-event-based-video-diffusion",
