@@ -122,14 +122,14 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:13.5px;padd
 <a class="brand" href="../../">深言速舟 · 学习站</a>
 <div class="searchbox"><input id="q" placeholder="搜索（按 / 聚焦）" autocomplete="off"><div id="results"></div></div>
 </header>
-<div class="wrap"><aside><h3>AI 扫盲</h3><a class="" href="../../learn/first-token-latency-and-throughput/">首字延迟与吞吐</a><a class="" href="../../learn/inference-engine/">推理引擎：模型对外提供服务的那一层</a><a class="" href="../../learn/kv-cache/">推理里的 KV Cache</a><a class="on" href="../../learn/what-is-token/">Token 是什么</a><h3>工程知识</h3><a class="" href="../../learn/longe2v-event-based-video-diffusion/">事件相机视频生成：LongE2V 与视频扩散模型</a><details class="book"><summary>Token 工厂拆解手册：从 GPU、推理服务到合同与现金流<span class="n">45</span></summary><h4>行业坐标</h4><a class="" href="../../learn/token-factory-01/">1 阅读指南</a><a class="" href="../../learn/token-factory-02/">2 需求起点</a><a class="" href="../../learn/token-factory-03/">3 供给格局</a><a class="" href="../../learn/token-factory-04/">4 推理成业</a><a class="" href="../../learn/token-factory-05/">5 计量链路</a><a class="" href="../../learn/token-factory-06/">6 角色地图</a><h4>业务闭环</h4><a class="" href="../../learn/token-factory-07/">7 产品边界</a><a class="" href="../../learn/token-factory-08/">8 产能成品</a><a class="" href="../../learn/token-factory-09/">9 六流闭环</a><h4>算力底座</h4><a class="" href="../../learn/token-factory-10/">10 显存装载</a><a class="" href="../../learn/token-factory-11/">11 互联存储</a><a class="" href="../../learn/token-factory-12/">12 机房运维</a><a class="" href="../../learn/token-factory-13/">13 资产周期</a><h4>推理系统</h4><a class="" href="../../learn/token-factory-14/">14 模型负载</a><a class="" href="../../learn/token-factory-15/">15 请求链路</a><a class="" href="../../learn/token-factory-16/">16 缓存机制</a><a class="" href="../../learn/token-factory-17/">17 批处理层</a><a class="" href="../../learn/token-factory-18/">18 并行策略</a><a class="" href="../../learn/token-factory-19/">19 加速手段</a><a class="" href="../../learn/token-factory-20/">20 引擎选型</a><a class="" href="../../learn/token-factory-21/">21 集群调度</a><a class="" href="../../learn/token-factory-22/">22 服务指标</a><a class="" href="../../learn/token-factory-23/">23 可靠交付</a><h4>生意算法</h4><a class="" href="../../learn/token-factory-24/">24 成本结构</a><a class="" href="../../learn/token-factory-25/">25 收入结构</a><a class="" href="../../learn/token-factory-26/">26 单位经济</a><a class="" href="../../learn/token-factory-27/">27 单机模型</a><a class="" href="../../learn/token-factory-28/">28 合同结算</a><a class="" href="../../learn/token-factory-29/">29 资本结构</a><a class="" href="../../learn/token-factory-30/">30 资金风险</a><h4>跨境结构</h4><a class="" href="../../learn/token-factory-31/">31 主体结构</a><a class="" href="../../learn/token-factory-32/">32 监管坐标</a><a class="" href="../../learn/token-factory-33/">33 数据路径</a><a class="" href="../../learn/token-factory-34/">34 风险台账</a><a class="" href="../../learn/token-factory-35/">35 运营体系</a><a class="" href="../../learn/token-factory-36/">36 团队形态</a><h4>案例映射</h4><a class="" href="../../learn/token-factory-37/">37 案例背景</a><a class="" href="../../learn/token-factory-38/">38 叙事流变</a><a class="" href="../../learn/token-factory-39/">39 论断映射</a><a class="" href="../../learn/token-factory-40/">40 核验方法</a><a class="" href="../../learn/token-factory-41/">41 待核清单</a><a class="" href="../../learn/token-factory-appendix-a/">A 术语对照</a><a class="" href="../../learn/token-factory-appendix-b/">B 公式误读</a><a class="" href="../../learn/token-factory-appendix-c/">C 数字口径</a><a class="" href="../../learn/token-factory-appendix-d/">D 证据账本</a></details><h3>业务知识</h3><a class="" href="../../learn/startup-basics/">创业公司是什么，为什么重要</a></aside><main><h1>Token 是什么</h1><p class="meta"><span>AI 扫盲</span><span>约 8 分钟</span><span>更新于 2026-08-03</span></p><h2>为什么你要懂这个</h2>
+<div class="wrap"><aside><h3>AI 扫盲</h3><a class="" href="../../learn/first-token-latency-and-throughput/">首字延迟与吞吐</a><a class="" href="../../learn/inference-engine/">推理引擎：模型对外提供服务的那一层</a><a class="" href="../../learn/kv-cache/">推理里的 KV Cache</a><a class="on" href="../../learn/what-is-token/">Token 是什么</a><h3>工程知识</h3><a class="" href="../../learn/longe2v-event-based-video-diffusion/">事件相机视频生成：LongE2V 与视频扩散模型</a><details class="book"><summary>Token 工厂拆解手册：从 GPU、推理服务到合同与现金流<span class="n">45</span></summary><h4>行业坐标</h4><a class="" href="../../learn/token-factory-01/">1 阅读指南</a><a class="" href="../../learn/token-factory-02/">2 需求起点</a><a class="" href="../../learn/token-factory-03/">3 供给格局</a><a class="" href="../../learn/token-factory-04/">4 推理成业</a><a class="" href="../../learn/token-factory-05/">5 计量链路</a><a class="" href="../../learn/token-factory-06/">6 角色地图</a><h4>业务闭环</h4><a class="" href="../../learn/token-factory-07/">7 产品边界</a><a class="" href="../../learn/token-factory-08/">8 产能成品</a><a class="" href="../../learn/token-factory-09/">9 六流闭环</a><h4>算力底座</h4><a class="" href="../../learn/token-factory-10/">10 显存装载</a><a class="" href="../../learn/token-factory-11/">11 互联存储</a><a class="" href="../../learn/token-factory-12/">12 机房运维</a><a class="" href="../../learn/token-factory-13/">13 资产周期</a><h4>推理系统</h4><a class="" href="../../learn/token-factory-14/">14 模型负载</a><a class="" href="../../learn/token-factory-15/">15 请求链路</a><a class="" href="../../learn/token-factory-16/">16 缓存机制</a><a class="" href="../../learn/token-factory-17/">17 批处理层</a><a class="" href="../../learn/token-factory-18/">18 并行策略</a><a class="" href="../../learn/token-factory-19/">19 加速手段</a><a class="" href="../../learn/token-factory-20/">20 引擎选型</a><a class="" href="../../learn/token-factory-21/">21 集群调度</a><a class="" href="../../learn/token-factory-22/">22 服务指标</a><a class="" href="../../learn/token-factory-23/">23 可靠交付</a><h4>生意算法</h4><a class="" href="../../learn/token-factory-24/">24 成本结构</a><a class="" href="../../learn/token-factory-25/">25 收入结构</a><a class="" href="../../learn/token-factory-26/">26 单位经济</a><a class="" href="../../learn/token-factory-27/">27 单机模型</a><a class="" href="../../learn/token-factory-28/">28 合同结算</a><a class="" href="../../learn/token-factory-29/">29 资本结构</a><a class="" href="../../learn/token-factory-30/">30 资金风险</a><h4>跨境结构</h4><a class="" href="../../learn/token-factory-31/">31 主体结构</a><a class="" href="../../learn/token-factory-32/">32 监管坐标</a><a class="" href="../../learn/token-factory-33/">33 数据路径</a><a class="" href="../../learn/token-factory-34/">34 风险台账</a><a class="" href="../../learn/token-factory-35/">35 运营体系</a><a class="" href="../../learn/token-factory-36/">36 团队形态</a><h4>案例映射</h4><a class="" href="../../learn/token-factory-37/">37 案例背景</a><a class="" href="../../learn/token-factory-38/">38 叙事流变</a><a class="" href="../../learn/token-factory-39/">39 论断映射</a><a class="" href="../../learn/token-factory-40/">40 核验方法</a><a class="" href="../../learn/token-factory-41/">41 待核清单</a><a class="" href="../../learn/token-factory-appendix-a/">A 术语对照</a><a class="" href="../../learn/token-factory-appendix-b/">B 公式误读</a><a class="" href="../../learn/token-factory-appendix-c/">C 数字口径</a><a class="" href="../../learn/token-factory-appendix-d/">D 证据账本</a></details><h3>业务知识</h3><a class="" href="../../learn/startup-basics/">创业公司是什么，为什么重要</a></aside><main><h1>Token 是什么</h1><p class="meta"><span>AI 扫盲</span><span>约 8 分钟</span><span>更新于 2026-08-03</span></p><h2 id="s1">为什么你要懂这个</h2>
 <p>商务在跟客户谈模型 API 服务的价格时，对方报价是&quot;每百万 token 多少钱&quot;。如果不知道 token 是什么，就换算不出客户每问一句话，我们要花多少钱、该收多少钱。月底拿到上游账单，上面只写消耗了几百万 token，你也没法判断数字对不对。报价、对账、容量规划三件事都用同一个单位，不懂它，这三件事都做不了。</p>
-<h2>一句话说清</h2>
+<h2 id="s2">一句话说清</h2>
 <p>模型处理文本的最小计费单位，一个 token 大约对应一个汉字。</p>
-<h2>打个比方</h2>
+<h2 id="s3">打个比方</h2>
 <p>把 token 想成出租车的里程表。你让 AI 写一段话，模型是一个小块一个小块地&quot;吐&quot;出来的，每吐一小块，里程表走一格，最后按里程数结账。不同出租车公司（不同模型）每公里收费不一样，起步价和夜间价也可能不同（对应输入和输出分开计价）。</p>
 <p>这个比方哪里不成立：出租车里程是客观的，同一个路段谁来开都一样长；token 数没有这个客观性，同一句话交给不同模型切分，数出来的 token 数量可能差不少。另外出租车空车等红灯不跳表，AI 服务即使部分内容命中了缓存，账单上该记的 token 还是会记。</p>
-<h2>拆开讲</h2>
+<h2 id="s4">拆开讲</h2>
 <h3>它到底在算什么？</h3>
 <p>大模型读文本不是一个字一个字读，而是先把文本切成小碎块，每个碎块就是一个 token（模型处理文本的最小单位）。比如&quot;今天天气不错&quot;可能被切成&quot;今天&quot;&quot;天气&quot;&quot;不错&quot;，也可能被切成单字，取决于模型自己的切法。切完后每个 token 对应一个数字编号，模型处理的是编号序列。token 既是模型的&quot;最小文字单位&quot;，也是计费的最小单位：每处理一个，算一份钱。</p>
 <h3>一句话值多少个 token？</h3>
@@ -138,21 +138,21 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:13.5px;padd
 <p>主要是以 API（应用程序接口，让别的软件来调用模型能力的入口）方式卖模型的平台，业内叫 MaaS（Model as a Service，模型即服务）。一次请求会产生两类 token：输入 token（你发的内容）和输出 token（它生成的回答），两者通常分开计价。聊天时输入往往比输出多，因为历史对话要一遍遍重新发；写代码、写文章时反过来，输出占大头。</p>
 <h3>为什么偏偏按 token 收钱？</h3>
 <p>因为 token 大致对应模型的干活量：处理的 token 越多，占用的计算资源越多。生成 token 的过程叫推理（用训练好的模型生成输出），是这些公司花销的大头。按 token 计费对客户直观：用得越多付得越多。相比按卡时租算力（卡时指一张 GPU 跑一小时），按 token 计费让客户不必关心背后用了多少显卡，只需关心自己用了多少内容。</p>
-<h2>再深一点</h2>
+<h2 id="s5">再深一点</h2>
 <p><strong>这一节写给工程，业务读者可以跳过。</strong></p>
 <p>具体机制：token 来自分词。模型发布时带一套固定词表（模型认识的所有 token 的清单），分词器把输入文本按词表切成 token 序列，每个 token 映射成一个整数 ID，模型处理的是 ID 序列。手册第 14 章称这一入口为&quot;分词入口&quot;。一次请求被手册第 15 章分成&quot;两段负载&quot;：输入 token 走 prefill 阶段，被模型读取并写入缓存；输出 token 走 decode 阶段，逐个生成。手册没有给出这两段各自耗时占比的数字，只指出资源画像不同，这对容量规划和报价有直接影响：输入 token 有缓存可复用，输出 token 是纯增量计算。</p>
 <p>关键数字：手册术语基线给出的换算是 1 个 token 约等于 0.6 到 1.5 个汉字、0.75 个英文单词；行业报价单位是每百万 token（M tokens）；TPM（tokens per minute，每分钟 token 数）是衡量吞吐的常用单位，注意别和 TPS 混，按秒算差 60 倍。</p>
 <p>和同类方案的差别：手册区分了两种计价体系，按卡时（一张 GPU 跑一小时）是算力租赁的通行单位，按 token 是推理服务的计价单位。按 token 计费把算力开销包装成&quot;内容量&quot;，客户不需要懂硬件，但代价是 token 数与真实计算量不是严格线性：相同的输入 token 命中前缀缓存时实际开销不同，输出 token 与输入 token 的边际开销也不同。因此跨模型直接比&quot;每百万 token&quot;价格没有意义，要连同词表和缓存策略一起看。手册没有给出这些差距的量化数字。</p>
 <p>边界：同一个句子在不同模型下 token 数不同，跨模型换算只能按上面的比例粗估；token 和区块链里说的 token 是两个毫无关系的词，手册术语基线里专门标注了这点。手册没有给出特定模型的词表大小和实测 token 比例，需要拿真实文本测过才能落地。</p>
-<h2>跟我们业务什么关系</h2>
+<h2 id="s6">跟我们业务什么关系</h2>
 <p>我们会在三处碰到 token：给客户报 API 价格时，它是计费单位；拿到上游模型平台账单时，它是核对对象；评估一次对话的真实开销时，它是输入变量。不懂的代价很直接，报价时算不出一次请求要花多少钱，对账时验证不了账单数字，压测时不知道并发该设多少。手册第 5 章&quot;计量链路&quot;的提法是，计量口径要写进合同才可执行，第 8 章&quot;最小启动&quot;则建议放量前先固定计量环节。我们内部各产品线当前的计量口径是否统一，素材没有覆盖，建议产品和商务各指定一人，拉一遍现有报价单和账单的计费单位，对齐后再谈优化。</p>
-<h2>你现在能做什么</h2>
+<h2 id="s7">你现在能做什么</h2>
 <ol>
 <li>拿一段 300 字左右的中文，用任一开源分词器的在线 demo 数一遍 token，把 token 数和字数都记下来。完成标志：你能说出&quot;我的文本 X 字约等于 Y 个 token&quot;。</li>
 <li>把手头所有跟模型服务相关的报价单或账单翻一遍，标出每份按什么单位计费（token、字符、请求次数还是包月）。完成标志：一张清单，逐条写明产品名和计费单位。</li>
 <li>找负责采购或合同的同事问一句：我们和上游结算时，token 的数量以谁的账单为准。完成标志：得到一句明确答复并记进笔记。</li>
 </ol>
-<h2>自测</h2>
+<h2 id="s8">自测</h2>
 <p><strong>第 1 题</strong>：1 个 token 严格等于 1 个汉字，对吗？</p>
 <details>
 <summary>答案</summary>
@@ -171,7 +171,7 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:13.5px;padd
 通常不可以。输入和输出是两段负载，资源消耗不同，大多数 MaaS 平台对两者分开计价。
 </details>
 
-<h2>术语表与来源</h2>
+<h2 id="s9">术语表与来源</h2>
 <p><strong>术语表</strong></p>
 <ul>
 <li>token：模型处理文本的最小计费单位，约等于 0.6 到 1.5 个汉字或 0.75 个英文单词</li>

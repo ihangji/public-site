@@ -122,7 +122,7 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:13.5px;padd
 <a class="brand" href="../../">深言速舟 · 学习站</a>
 <div class="searchbox"><input id="q" placeholder="搜索（按 / 聚焦）" autocomplete="off"><div id="results"></div></div>
 </header>
-<div class="wrap"><aside><h3>AI 扫盲</h3><a class="" href="../../learn/first-token-latency-and-throughput/">首字延迟与吞吐</a><a class="" href="../../learn/inference-engine/">推理引擎：模型对外提供服务的那一层</a><a class="" href="../../learn/kv-cache/">推理里的 KV Cache</a><a class="" href="../../learn/what-is-token/">Token 是什么</a><h3>工程知识</h3><a class="" href="../../learn/longe2v-event-based-video-diffusion/">事件相机视频生成：LongE2V 与视频扩散模型</a><details class="book" open><summary>Token 工厂拆解手册：从 GPU、推理服务到合同与现金流<span class="n">45</span></summary><h4>行业坐标</h4><a class="" href="../../learn/token-factory-01/">1 阅读指南</a><a class="" href="../../learn/token-factory-02/">2 需求起点</a><a class="" href="../../learn/token-factory-03/">3 供给格局</a><a class="" href="../../learn/token-factory-04/">4 推理成业</a><a class="" href="../../learn/token-factory-05/">5 计量链路</a><a class="" href="../../learn/token-factory-06/">6 角色地图</a><h4>业务闭环</h4><a class="" href="../../learn/token-factory-07/">7 产品边界</a><a class="" href="../../learn/token-factory-08/">8 产能成品</a><a class="" href="../../learn/token-factory-09/">9 六流闭环</a><h4>算力底座</h4><a class="" href="../../learn/token-factory-10/">10 显存装载</a><a class="" href="../../learn/token-factory-11/">11 互联存储</a><a class="" href="../../learn/token-factory-12/">12 机房运维</a><a class="" href="../../learn/token-factory-13/">13 资产周期</a><h4>推理系统</h4><a class="" href="../../learn/token-factory-14/">14 模型负载</a><a class="" href="../../learn/token-factory-15/">15 请求链路</a><a class="" href="../../learn/token-factory-16/">16 缓存机制</a><a class="" href="../../learn/token-factory-17/">17 批处理层</a><a class="" href="../../learn/token-factory-18/">18 并行策略</a><a class="" href="../../learn/token-factory-19/">19 加速手段</a><a class="" href="../../learn/token-factory-20/">20 引擎选型</a><a class="" href="../../learn/token-factory-21/">21 集群调度</a><a class="" href="../../learn/token-factory-22/">22 服务指标</a><a class="" href="../../learn/token-factory-23/">23 可靠交付</a><h4>生意算法</h4><a class="" href="../../learn/token-factory-24/">24 成本结构</a><a class="" href="../../learn/token-factory-25/">25 收入结构</a><a class="" href="../../learn/token-factory-26/">26 单位经济</a><a class="" href="../../learn/token-factory-27/">27 单机模型</a><a class="" href="../../learn/token-factory-28/">28 合同结算</a><a class="" href="../../learn/token-factory-29/">29 资本结构</a><a class="" href="../../learn/token-factory-30/">30 资金风险</a><h4>跨境结构</h4><a class="" href="../../learn/token-factory-31/">31 主体结构</a><a class="" href="../../learn/token-factory-32/">32 监管坐标</a><a class="" href="../../learn/token-factory-33/">33 数据路径</a><a class="" href="../../learn/token-factory-34/">34 风险台账</a><a class="" href="../../learn/token-factory-35/">35 运营体系</a><a class="" href="../../learn/token-factory-36/">36 团队形态</a><h4>案例映射</h4><a class="" href="../../learn/token-factory-37/">37 案例背景</a><a class="" href="../../learn/token-factory-38/">38 叙事流变</a><a class="" href="../../learn/token-factory-39/">39 论断映射</a><a class="on" href="../../learn/token-factory-40/">40 核验方法</a><a class="" href="../../learn/token-factory-41/">41 待核清单</a><a class="" href="../../learn/token-factory-appendix-a/">A 术语对照</a><a class="" href="../../learn/token-factory-appendix-b/">B 公式误读</a><a class="" href="../../learn/token-factory-appendix-c/">C 数字口径</a><a class="" href="../../learn/token-factory-appendix-d/">D 证据账本</a></details><h3>业务知识</h3><a class="" href="../../learn/startup-basics/">创业公司是什么，为什么重要</a></aside><main><h1>40 核验方法</h1><p class="meta"><span><a href="../token-factory/">Token 工厂拆解手册：从 GPU、推理服务到合同与现金流</a></span><span>案例映射</span><span>约 29 分钟</span><span>更新于 2026-08-03</span></p><div class="doc"><h2>40.1 六层依赖</h2>
+<div class="wrap"><aside><h3>AI 扫盲</h3><a class="" href="../../learn/first-token-latency-and-throughput/">首字延迟与吞吐</a><a class="" href="../../learn/inference-engine/">推理引擎：模型对外提供服务的那一层</a><a class="" href="../../learn/kv-cache/">推理里的 KV Cache</a><a class="" href="../../learn/what-is-token/">Token 是什么</a><h3>工程知识</h3><a class="" href="../../learn/longe2v-event-based-video-diffusion/">事件相机视频生成：LongE2V 与视频扩散模型</a><details class="book" open><summary>Token 工厂拆解手册：从 GPU、推理服务到合同与现金流<span class="n">45</span></summary><h4>行业坐标</h4><a class="" href="../../learn/token-factory-01/">1 阅读指南</a><a class="" href="../../learn/token-factory-02/">2 需求起点</a><a class="" href="../../learn/token-factory-03/">3 供给格局</a><a class="" href="../../learn/token-factory-04/">4 推理成业</a><a class="" href="../../learn/token-factory-05/">5 计量链路</a><a class="" href="../../learn/token-factory-06/">6 角色地图</a><h4>业务闭环</h4><a class="" href="../../learn/token-factory-07/">7 产品边界</a><a class="" href="../../learn/token-factory-08/">8 产能成品</a><a class="" href="../../learn/token-factory-09/">9 六流闭环</a><h4>算力底座</h4><a class="" href="../../learn/token-factory-10/">10 显存装载</a><a class="" href="../../learn/token-factory-11/">11 互联存储</a><a class="" href="../../learn/token-factory-12/">12 机房运维</a><a class="" href="../../learn/token-factory-13/">13 资产周期</a><h4>推理系统</h4><a class="" href="../../learn/token-factory-14/">14 模型负载</a><a class="" href="../../learn/token-factory-15/">15 请求链路</a><a class="" href="../../learn/token-factory-16/">16 缓存机制</a><a class="" href="../../learn/token-factory-17/">17 批处理层</a><a class="" href="../../learn/token-factory-18/">18 并行策略</a><a class="" href="../../learn/token-factory-19/">19 加速手段</a><a class="" href="../../learn/token-factory-20/">20 引擎选型</a><a class="" href="../../learn/token-factory-21/">21 集群调度</a><a class="" href="../../learn/token-factory-22/">22 服务指标</a><a class="" href="../../learn/token-factory-23/">23 可靠交付</a><h4>生意算法</h4><a class="" href="../../learn/token-factory-24/">24 成本结构</a><a class="" href="../../learn/token-factory-25/">25 收入结构</a><a class="" href="../../learn/token-factory-26/">26 单位经济</a><a class="" href="../../learn/token-factory-27/">27 单机模型</a><a class="" href="../../learn/token-factory-28/">28 合同结算</a><a class="" href="../../learn/token-factory-29/">29 资本结构</a><a class="" href="../../learn/token-factory-30/">30 资金风险</a><h4>跨境结构</h4><a class="" href="../../learn/token-factory-31/">31 主体结构</a><a class="" href="../../learn/token-factory-32/">32 监管坐标</a><a class="" href="../../learn/token-factory-33/">33 数据路径</a><a class="" href="../../learn/token-factory-34/">34 风险台账</a><a class="" href="../../learn/token-factory-35/">35 运营体系</a><a class="" href="../../learn/token-factory-36/">36 团队形态</a><h4>案例映射</h4><a class="" href="../../learn/token-factory-37/">37 案例背景</a><a class="" href="../../learn/token-factory-38/">38 叙事流变</a><a class="" href="../../learn/token-factory-39/">39 论断映射</a><a class="on" href="../../learn/token-factory-40/">40 核验方法</a><a class="" href="../../learn/token-factory-41/">41 待核清单</a><a class="" href="../../learn/token-factory-appendix-a/">A 术语对照</a><a class="" href="../../learn/token-factory-appendix-b/">B 公式误读</a><a class="" href="../../learn/token-factory-appendix-c/">C 数字口径</a><a class="" href="../../learn/token-factory-appendix-d/">D 证据账本</a></details><h3>业务知识</h3><a class="" href="../../learn/startup-basics/">创业公司是什么，为什么重要</a></aside><main><h1>40 核验方法</h1><p class="meta"><span><a href="../token-factory/">Token 工厂拆解手册：从 GPU、推理服务到合同与现金流</a></span><span>案例映射</span><span>约 29 分钟</span><span>更新于 2026-08-03</span></p><nav class="page-toc"><b>本章</b><a href="#s1">40.1 六层依赖</a><a href="#s2">40.2 资源验证</a><a href="#s3">40.3 技术验证</a><a href="#s4">40.4 需求漏斗</a><a href="#s5">40.5 工作方法</a><a href="#s6">40.6 证据总表</a></nav><div class="doc"><h2 id="s1">40.1 六层依赖</h2>
 <p>会议里最需警惕的是：若干可能正确的局部被一个所以连成确定结论。核验方法要把有卡、有技术、有客户、有钱所以能规模化赚钱，拆成可单独失败的节点。每个节点都要有证据、责任人和最低成本的验证动作。</p>
 
 <div class="figure tall"><div class="fig-head"><span class="fnum">图 91</span>任何项目主张都要穿过六层依赖链</div>
@@ -166,7 +166,7 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:13.5px;padd
 <div class="fig-note">六层为串联结构：任一层缺失证据，上层结论只能停留在假设或情景。最弱的可验证节点决定整体可信度。</div>
 <div class="fig-use">不要问我信不信，沿依赖链逐层找证据；每层先做该层最便宜的闸门实验。</div></div>
 
-<h2>40.2 资源验证</h2>
+<h2 id="s2">40.2 资源验证</h2>
 <table class="wrap">
 <thead><tr><th>录音说法</th><th>成立条件</th><th>当前状态</th><th>最便宜的闸门</th></tr></thead>
 <tbody>
@@ -176,7 +176,7 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:13.5px;padd
 <tr><td>72 小时内处理机房问题</td><td>故障级别、起算点、备件库、远程手段和责任人明确</td><td>录音陈述，拟议目标</td><td>一次受控故障演练和工单回放</td></tr>
 </tbody></table>
 
-<h2>40.3 技术验证</h2>
+<h2 id="s3">40.3 技术验证</h2>
 <p>技术主张要从会哪些词转成在固定基线上改变了什么。B300 配国产卡做 PD 分离并已开始交付这条主张，至少包含四个子命题：prefill 与 decode 可以在不同资源执行；跨节点传输 KV 状态的开销可控；调度能把不同阶段的队列配平；故障和版本不一致不会破坏服务。任何一项失败，端到端收益都可能消失。最低验证包应固定模型权重和分词器，记录每种卡的数量、精度、引擎版本、互联和网络；分别测试单体基线与分离方案；在至少三种输入输出长度、三个并发区间下报告首字、出字、吞吐、P95、P99、错误率和利用率；最后做长稳压测和故障注入。没有这些条件，效果不错不可比较。</p>
 <table class="wrap">
 <thead><tr><th>技术主张</th><th>必须固定的基线</th><th>反证条件</th><th>证据状态</th></tr></thead>
@@ -190,7 +190,7 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:13.5px;padd
 <div class="hl"><p><strong>可归因增量毛利 = （新方案可计费收入 - 新方案全部增量成本）- （基线可计费收入 - 基线全部增量成本）</strong></p></div>
 <p>两边的增量成本里都必须扣掉迁移、工程、人力、故障、重试、额外网络、缓存状态转移和低负载闲置。少扣一项，账面上的优化收益就会凭空多出一块。</p>
 
-<h2>40.4 需求漏斗</h2>
+<h2 id="s4">40.4 需求漏斗</h2>
 <p>供不应求是市场状态，不是任何一家新主体的合同。需求要经过五级漏斗：市场需求、可触达客户、书面意向、可执行合同、已回款用量。会议称初期约 60% 产能可由中国客户消纳，R3 追问这 60% 是不是订单，讨论仍回到关系和市场短缺，<span class="ev ev-r">录</span>因此该数字当前只能作为情景假设。最小需求证据要过三类匹配。</p>
 <ul>
 <li><strong>工作负载匹配</strong>　客户用什么模型、精度、上下文和并发，是否接受对应地区和延迟</li>
@@ -200,7 +200,7 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:13.5px;padd
 <p>渠道也不能替代最终需求。在拿到接入条件、结算口径、流量质量和供应商责任之前，渠道名字只说明可能有入口。</p>
 <p>经济层的三情景纪律沿用第 26.4 节，五个关键变量的压力、基准、乐观取值规则是：可售利用率的乐观情景只能由可验证溢出需求支持；单价不以口头稀缺溢价代替合同价；有效吞吐用目标负载实测分位数，不用峰值；资产残值按独立估值，不假设原价退出；运维成本的规模效应需有实际阶梯价。</p>
 
-<h2>40.5 工作方法</h2>
+<h2 id="s5">40.5 工作方法</h2>
 <h3>六个实验</h3>
 <p>这六个实验用于验证第 8 章的七道交付门，不构成另一套门。在不扩大资金和法律风险的前提下，最便宜的验证顺序是这六件。</p>
 <ol>
@@ -222,7 +222,7 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:13.5px;padd
 <h3>反方审查</h3>
 <p>反方审查应在资金和长期承诺之前发生，并拥有与提案方相同的底层材料。反方要找出最可能同时改变收入、成本和可执行性的前提，再设计能迅速推翻它的证据：60% 消纳若是利用率底座，就优先验证订单和流量；PD 分离若是成本优势来源，就优先做同基线复现；海外主体若是资产准入前提，就优先取得资产方书面条件和专业意见。反方结论也要可行动：风险很大没有价值，如果三家客户都拒绝在该地区处理日志，当前机房位置将使可服务市场缩小，需在签租约前完成数据路径访谈，才是可用判断。反方审查把大额、不可逆行动推迟到便宜证据之后。</p>
 
-<h2>40.6 证据总表</h2>
+<h2 id="s6">40.6 证据总表</h2>
 <table class="wrap">
 <thead><tr><th>核心主张</th><th>当前等级</th><th>可升级为事实的材料</th><th>未解决限制</th></tr></thead>
 <tbody>

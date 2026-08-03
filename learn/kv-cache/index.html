@@ -122,17 +122,17 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:13.5px;padd
 <a class="brand" href="../../">深言速舟 · 学习站</a>
 <div class="searchbox"><input id="q" placeholder="搜索（按 / 聚焦）" autocomplete="off"><div id="results"></div></div>
 </header>
-<div class="wrap"><aside><h3>AI 扫盲</h3><a class="" href="../../learn/first-token-latency-and-throughput/">首字延迟与吞吐</a><a class="" href="../../learn/inference-engine/">推理引擎：模型对外提供服务的那一层</a><a class="on" href="../../learn/kv-cache/">推理里的 KV Cache</a><a class="" href="../../learn/what-is-token/">Token 是什么</a><h3>工程知识</h3><a class="" href="../../learn/longe2v-event-based-video-diffusion/">事件相机视频生成：LongE2V 与视频扩散模型</a><details class="book"><summary>Token 工厂拆解手册：从 GPU、推理服务到合同与现金流<span class="n">45</span></summary><h4>行业坐标</h4><a class="" href="../../learn/token-factory-01/">1 阅读指南</a><a class="" href="../../learn/token-factory-02/">2 需求起点</a><a class="" href="../../learn/token-factory-03/">3 供给格局</a><a class="" href="../../learn/token-factory-04/">4 推理成业</a><a class="" href="../../learn/token-factory-05/">5 计量链路</a><a class="" href="../../learn/token-factory-06/">6 角色地图</a><h4>业务闭环</h4><a class="" href="../../learn/token-factory-07/">7 产品边界</a><a class="" href="../../learn/token-factory-08/">8 产能成品</a><a class="" href="../../learn/token-factory-09/">9 六流闭环</a><h4>算力底座</h4><a class="" href="../../learn/token-factory-10/">10 显存装载</a><a class="" href="../../learn/token-factory-11/">11 互联存储</a><a class="" href="../../learn/token-factory-12/">12 机房运维</a><a class="" href="../../learn/token-factory-13/">13 资产周期</a><h4>推理系统</h4><a class="" href="../../learn/token-factory-14/">14 模型负载</a><a class="" href="../../learn/token-factory-15/">15 请求链路</a><a class="" href="../../learn/token-factory-16/">16 缓存机制</a><a class="" href="../../learn/token-factory-17/">17 批处理层</a><a class="" href="../../learn/token-factory-18/">18 并行策略</a><a class="" href="../../learn/token-factory-19/">19 加速手段</a><a class="" href="../../learn/token-factory-20/">20 引擎选型</a><a class="" href="../../learn/token-factory-21/">21 集群调度</a><a class="" href="../../learn/token-factory-22/">22 服务指标</a><a class="" href="../../learn/token-factory-23/">23 可靠交付</a><h4>生意算法</h4><a class="" href="../../learn/token-factory-24/">24 成本结构</a><a class="" href="../../learn/token-factory-25/">25 收入结构</a><a class="" href="../../learn/token-factory-26/">26 单位经济</a><a class="" href="../../learn/token-factory-27/">27 单机模型</a><a class="" href="../../learn/token-factory-28/">28 合同结算</a><a class="" href="../../learn/token-factory-29/">29 资本结构</a><a class="" href="../../learn/token-factory-30/">30 资金风险</a><h4>跨境结构</h4><a class="" href="../../learn/token-factory-31/">31 主体结构</a><a class="" href="../../learn/token-factory-32/">32 监管坐标</a><a class="" href="../../learn/token-factory-33/">33 数据路径</a><a class="" href="../../learn/token-factory-34/">34 风险台账</a><a class="" href="../../learn/token-factory-35/">35 运营体系</a><a class="" href="../../learn/token-factory-36/">36 团队形态</a><h4>案例映射</h4><a class="" href="../../learn/token-factory-37/">37 案例背景</a><a class="" href="../../learn/token-factory-38/">38 叙事流变</a><a class="" href="../../learn/token-factory-39/">39 论断映射</a><a class="" href="../../learn/token-factory-40/">40 核验方法</a><a class="" href="../../learn/token-factory-41/">41 待核清单</a><a class="" href="../../learn/token-factory-appendix-a/">A 术语对照</a><a class="" href="../../learn/token-factory-appendix-b/">B 公式误读</a><a class="" href="../../learn/token-factory-appendix-c/">C 数字口径</a><a class="" href="../../learn/token-factory-appendix-d/">D 证据账本</a></details><h3>业务知识</h3><a class="" href="../../learn/startup-basics/">创业公司是什么，为什么重要</a></aside><main><h1>推理里的 KV Cache</h1><p class="meta"><span>AI 扫盲</span><span>约 6 分钟</span><span>更新于 2026-08-03</span></p><h2>为什么你要懂这个</h2>
+<div class="wrap"><aside><h3>AI 扫盲</h3><a class="" href="../../learn/first-token-latency-and-throughput/">首字延迟与吞吐</a><a class="" href="../../learn/inference-engine/">推理引擎：模型对外提供服务的那一层</a><a class="on" href="../../learn/kv-cache/">推理里的 KV Cache</a><a class="" href="../../learn/what-is-token/">Token 是什么</a><h3>工程知识</h3><a class="" href="../../learn/longe2v-event-based-video-diffusion/">事件相机视频生成：LongE2V 与视频扩散模型</a><details class="book"><summary>Token 工厂拆解手册：从 GPU、推理服务到合同与现金流<span class="n">45</span></summary><h4>行业坐标</h4><a class="" href="../../learn/token-factory-01/">1 阅读指南</a><a class="" href="../../learn/token-factory-02/">2 需求起点</a><a class="" href="../../learn/token-factory-03/">3 供给格局</a><a class="" href="../../learn/token-factory-04/">4 推理成业</a><a class="" href="../../learn/token-factory-05/">5 计量链路</a><a class="" href="../../learn/token-factory-06/">6 角色地图</a><h4>业务闭环</h4><a class="" href="../../learn/token-factory-07/">7 产品边界</a><a class="" href="../../learn/token-factory-08/">8 产能成品</a><a class="" href="../../learn/token-factory-09/">9 六流闭环</a><h4>算力底座</h4><a class="" href="../../learn/token-factory-10/">10 显存装载</a><a class="" href="../../learn/token-factory-11/">11 互联存储</a><a class="" href="../../learn/token-factory-12/">12 机房运维</a><a class="" href="../../learn/token-factory-13/">13 资产周期</a><h4>推理系统</h4><a class="" href="../../learn/token-factory-14/">14 模型负载</a><a class="" href="../../learn/token-factory-15/">15 请求链路</a><a class="" href="../../learn/token-factory-16/">16 缓存机制</a><a class="" href="../../learn/token-factory-17/">17 批处理层</a><a class="" href="../../learn/token-factory-18/">18 并行策略</a><a class="" href="../../learn/token-factory-19/">19 加速手段</a><a class="" href="../../learn/token-factory-20/">20 引擎选型</a><a class="" href="../../learn/token-factory-21/">21 集群调度</a><a class="" href="../../learn/token-factory-22/">22 服务指标</a><a class="" href="../../learn/token-factory-23/">23 可靠交付</a><h4>生意算法</h4><a class="" href="../../learn/token-factory-24/">24 成本结构</a><a class="" href="../../learn/token-factory-25/">25 收入结构</a><a class="" href="../../learn/token-factory-26/">26 单位经济</a><a class="" href="../../learn/token-factory-27/">27 单机模型</a><a class="" href="../../learn/token-factory-28/">28 合同结算</a><a class="" href="../../learn/token-factory-29/">29 资本结构</a><a class="" href="../../learn/token-factory-30/">30 资金风险</a><h4>跨境结构</h4><a class="" href="../../learn/token-factory-31/">31 主体结构</a><a class="" href="../../learn/token-factory-32/">32 监管坐标</a><a class="" href="../../learn/token-factory-33/">33 数据路径</a><a class="" href="../../learn/token-factory-34/">34 风险台账</a><a class="" href="../../learn/token-factory-35/">35 运营体系</a><a class="" href="../../learn/token-factory-36/">36 团队形态</a><h4>案例映射</h4><a class="" href="../../learn/token-factory-37/">37 案例背景</a><a class="" href="../../learn/token-factory-38/">38 叙事流变</a><a class="" href="../../learn/token-factory-39/">39 论断映射</a><a class="" href="../../learn/token-factory-40/">40 核验方法</a><a class="" href="../../learn/token-factory-41/">41 待核清单</a><a class="" href="../../learn/token-factory-appendix-a/">A 术语对照</a><a class="" href="../../learn/token-factory-appendix-b/">B 公式误读</a><a class="" href="../../learn/token-factory-appendix-c/">C 数字口径</a><a class="" href="../../learn/token-factory-appendix-d/">D 证据账本</a></details><h3>业务知识</h3><a class="" href="../../learn/startup-basics/">创业公司是什么，为什么重要</a></aside><main><h1>推理里的 KV Cache</h1><p class="meta"><span>AI 扫盲</span><span>约 6 分钟</span><span>更新于 2026-08-03</span></p><h2 id="s1">为什么你要懂这个</h2>
 <p>你在跟客户谈一套部署方案，工程给了一个数字：这台机器能同时服务多少人。你把这个数字写进方案。交付时客户把单次对话能装的内容量调大了好几倍，同时在线人数直接掉下来，客户认为我们没做到承诺。</p>
 <p>问题不在工程算错，在于那个并发数字（同一时刻能服务多少人）本来就跟单次对话长度绑在一起，只报一个数字等于没报。不懂 KV Cache，你就不知道这两个数字必须成对出现，也就没法在谈的时候把话说严谨。</p>
-<h2>一句话说清</h2>
+<h2 id="s2">一句话说清</h2>
 <p>模型把算过的中间结果存起来重复用，生成更快，代价是占显卡内存，对话越长占得越多。</p>
-<h2>打个比方</h2>
+<h2 id="s3">打个比方</h2>
 <p>装修的时候要量房。假设你每加一件家具，都要把整个房子从头到尾重新量一遍，加到第十件，你已经量了十遍。聪明的做法是第一次量完就记在本子上，后面每加一件只量新增的那一点，其余的翻本子。KV Cache 就是那个本子：把已经算过的结果记下来，别重算。</p>
 <p>这个比方哪里不成立：</p>
 <p>第一，本子多写几页几乎不占地方，KV Cache 占的显卡内存是实打实的，而且跟内容长度成正比，很快就能把一张卡吃满。这是它和普通笔记最大的区别，也是这一页真正要你记住的部分。</p>
 <p>第二，本子写完可以复印给别人，同一时刻正在进行的每个对话通常各占一份自己的缓存，互相不能顶替。具体到某一款推理软件是否有共享机制，这一点没有确认。</p>
-<h2>拆开讲</h2>
+<h2 id="s4">拆开讲</h2>
 <h3>模型生成一句话的时候，在重复算什么</h3>
 <p>大模型是一个词一个词往外吐的（这里的&quot;词&quot;是模型内部的最小单位，和中文的词不完全对应，不影响理解）。它吐每一个新词之前，都要回看前面已经有的全部内容，算出一组中间表示，再据此决定下一个词是什么。</p>
 <p>关键在&quot;全部内容&quot;。生成第 1 个词回看 1 个，第 2 个回看 2 个，第 100 个回看 100 个。如果每次都从头重算，生成 N 个词的总计算量大致是 N 乘 N。N 是 100 的时候是一万次量级，N 是 1000 的时候就是一百万次量级，长度翻十倍，代价翻一百倍。这就是不做缓存时的成本曲线。</p>
@@ -145,11 +145,11 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:13.5px;padd
 <h3>上下文开长，代价具体落在哪</h3>
 <p>上下文指模型单次能同时看到的内容总量，问题加历史加资料都算在里面。上下文开得长，用户体验更好，能一次塞进整份文档。</p>
 <p>代价是每个正在进行的对话都要占更大一份缓存。显存总量不变，单份占得多，能同时装下的份数就少，也就是同一张卡能同时服务的人变少。所以&quot;这台机器能服务多少人&quot;这句话，脱离上下文长度是不成立的，这是本页最容易被漏掉的一点。至于具体到某个模型某张卡上，长度和人数的换算关系是多少，需要工程实测，不能靠推断。</p>
-<h2>跟我们业务什么关系</h2>
+<h2 id="s5">跟我们业务什么关系</h2>
 <p>最直接的场景是对外做部署方案测算：客户问一套设备能支撑多少人同时用，我们必须把答案写成一组条件，而不是一个数字。不懂这个，商务会在没有约束的情况下报出一个并发数，交付时对不上，返工和信任成本都由我们承担。</p>
 <p>第二个场景在我们自己这边：内部把长文档和会议记录自动整理成材料的那条流程，输入天然很长，属于典型的长上下文任务。这类任务跑起来占显存多，和别的任务抢资源。</p>
 <p>我们现在的做法是：涉及并发承诺的场合，上下文长度和并发数必须成对出现，由工程实测给数，不允许口头估。实测的具体数字属于内部信息，不在本页展开。</p>
-<h2>你现在能做什么</h2>
+<h2 id="s6">你现在能做什么</h2>
 <ol>
 <li><p>打开你手边任意一个在用的大模型服务的说明页，找到上下文长度这一项。完成标志：你能说出这个服务单次最多能装多少内容，数字写在你自己的笔记里。</p>
 </li>
@@ -158,7 +158,7 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:13.5px;padd
 <li><p>用不含术语的话把这件事讲给另一位同事听，请对方复述。完成标志：对方能自己说出&quot;省的是时间，花的是显卡内存&quot;这两点。</p>
 </li>
 </ol>
-<h2>自测</h2>
+<h2 id="s7">自测</h2>
 <p><strong>第一题（判断）</strong> 用了 KV Cache 之后，模型回答得更准了。</p>
 <details>
 <summary>答案</summary>
@@ -183,7 +183,7 @@ C. 模型的参数变多</p>
 <p>对。这正是这套缓存存在的理由，节省的幅度随内容变长而变大。</p>
 </details>
 
-<h2>术语表与来源</h2>
+<h2 id="s8">术语表与来源</h2>
 <p><strong>术语表</strong></p>
 <ul>
 <li>KV Cache：推理时把已经算过的中间结果存起来重复使用的缓存机制。</li>
