@@ -320,5 +320,12 @@
   "summary": "回到三段录音，逐条检查主张、证据、条件和仍然空着的位置。",
   "track": "eng",
   "updated": "2026-08-04"
+ },
+ {
+  "slug": "llm-inference-acceleration-handbook",
+  "title": "LLM 推理加速：从 0 到 1 教学手册",
+  "summary": "LLM 推理 95% 时间花在 Decode，而 Decode 阶段 GPU 算力 95% 闲置。",
+  "track": "eng",
+  "updated": "2026-08-04"
  }
 ]
