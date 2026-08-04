@@ -1,6 +1,6 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>14 模型负载 · 深言速舟学习站</title><meta name="description" content="分词入口 · 上下文窗 · 三类负载 · 负载合同 · 数据陷阱">
+<title>推理加速 · 深言速舟学习站</title><meta name="description" content="大模型回答慢的根源是搬运数据，不是算得慢。所有加速技术都在解决这一个问题。">
 <style>/* 配色抄 Notion 的思路：不用纯黑纯灰，用带一点暖调的近黑和极淡的分隔线。
    边框一律低对比（透明度而不是实色），让页面靠留白分隔而不是靠线切割。 */
 :root{
@@ -247,42 +247,94 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:13px;paddin
 <a class="brand" href="../../">深言速舟 · 学习站</a>
 <div class="searchbox"><input id="q" placeholder="搜索（按 / 聚焦）" autocomplete="off"><div id="results"></div></div>
 </header>
-<div class="wrap"><aside><h3>AI 扫盲</h3><a class="" href="../../learn/llm-inference-acceleration/">推理加速</a><h3>手册</h3><details class="book" open><summary title="Token 工厂拆解手册：从 GPU、推理服务到合同与现金流">Token 工厂拆解手册<span class="n">45 章</span></summary><details class="part"><summary><i>一</i>行业坐标<span class="n">6</span></summary><a class="" href="../../learn/token-factory-01/">1 阅读指南</a><a class="" href="../../learn/token-factory-02/">2 需求起点</a><a class="" href="../../learn/token-factory-03/">3 供给格局</a><a class="" href="../../learn/token-factory-04/">4 推理成业</a><a class="" href="../../learn/token-factory-05/">5 计量链路</a><a class="" href="../../learn/token-factory-06/">6 角色地图</a></details><details class="part"><summary><i>二</i>业务闭环<span class="n">3</span></summary><a class="" href="../../learn/token-factory-07/">7 产品边界</a><a class="" href="../../learn/token-factory-08/">8 产能成品</a><a class="" href="../../learn/token-factory-09/">9 六流闭环</a></details><details class="part"><summary><i>三</i>算力底座<span class="n">4</span></summary><a class="" href="../../learn/token-factory-10/">10 显存装载</a><a class="" href="../../learn/token-factory-11/">11 互联存储</a><a class="" href="../../learn/token-factory-12/">12 机房运维</a><a class="" href="../../learn/token-factory-13/">13 资产周期</a></details><details class="part" open><summary><i>四</i>推理系统<span class="n">10</span></summary><a class="on" href="../../learn/token-factory-14/">14 模型负载</a><a class="" href="../../learn/token-factory-15/">15 请求链路</a><a class="" href="../../learn/token-factory-16/">16 缓存机制</a><a class="" href="../../learn/token-factory-17/">17 批处理层</a><a class="" href="../../learn/token-factory-18/">18 并行策略</a><a class="" href="../../learn/token-factory-19/">19 加速手段</a><a class="" href="../../learn/token-factory-20/">20 引擎选型</a><a class="" href="../../learn/token-factory-21/">21 集群调度</a><a class="" href="../../learn/token-factory-22/">22 服务指标</a><a class="" href="../../learn/token-factory-23/">23 可靠交付</a></details><details class="part"><summary><i>五</i>生意算法<span class="n">7</span></summary><a class="" href="../../learn/token-factory-24/">24 成本结构</a><a class="" href="../../learn/token-factory-25/">25 收入结构</a><a class="" href="../../learn/token-factory-26/">26 单位经济</a><a class="" href="../../learn/token-factory-27/">27 单机模型</a><a class="" href="../../learn/token-factory-28/">28 合同结算</a><a class="" href="../../learn/token-factory-29/">29 资本结构</a><a class="" href="../../learn/token-factory-30/">30 资金风险</a></details><details class="part"><summary><i>六</i>跨境结构<span class="n">6</span></summary><a class="" href="../../learn/token-factory-31/">31 主体结构</a><a class="" href="../../learn/token-factory-32/">32 监管坐标</a><a class="" href="../../learn/token-factory-33/">33 数据路径</a><a class="" href="../../learn/token-factory-34/">34 风险台账</a><a class="" href="../../learn/token-factory-35/">35 运营体系</a><a class="" href="../../learn/token-factory-36/">36 团队形态</a></details><details class="part"><summary><i>七</i>案例映射<span class="n">5</span></summary><a class="" href="../../learn/token-factory-37/">37 案例背景</a><a class="" href="../../learn/token-factory-38/">38 叙事流变</a><a class="" href="../../learn/token-factory-39/">39 论断映射</a><a class="" href="../../learn/token-factory-40/">40 核验方法</a><a class="" href="../../learn/token-factory-41/">41 待核清单</a></details><details class="part"><summary><i></i>附录<span class="n">4</span></summary><a class="" href="../../learn/token-factory-appendix-a/">A 术语对照</a><a class="" href="../../learn/token-factory-appendix-b/">B 公式误读</a><a class="" href="../../learn/token-factory-appendix-c/">C 数字口径</a><a class="" href="../../learn/token-factory-appendix-d/">D 证据账本</a></details></details></aside><main><h1>14 模型负载</h1><p class="meta"><span><a href="../token-factory/">Token 工厂拆解手册：从 GPU、推理服务到合同与现金流</a></span><span>第四部分 推理系统</span><span>约 14 分钟</span><span>更新于 2026-08-04</span></p><nav class="page-toc inline"><b>本章</b><a href="#s1">14.1 分词入口</a><a href="#s2">14.2 上下文窗</a><a href="#s3">14.3 三类负载</a><a href="#s4">14.4 负载合同</a><a href="#s5">14.5 数据陷阱</a></nav><div class="doc"><h2 id="s1">14.1 分词入口</h2>
-<p><strong>没有负载分布，就没有容量结论。</strong>支持 128K 上下文、平均每请求 2000 token、模型 70B 参数，这些都不是完整的负载描述。推理系统处理的是一串不断到达、长度不同、共享状态不同的请求；同一个模型在短问答、长文档和 agent 工作流下，会把压力放到完全不同的资源上。本章先把负载这个词定义清楚，后面所有性能和产能数字都要挂在它上面。</p>
-<p>文本进入模型前先过分词器（tokenizer），被编码为整数序列。分词不是简单按字或按词切：常见流水线包含规范化、预分词、子词模型和后处理，BPE、Unigram 等算法会让同一段文字得到不同 token 序列。<span class="ev ev-k">核</span>这件事同时改变技术负载和账单：token 数决定输入长度、KV 缓存容量和计算量，API 又按输入、输出或缓存 token 计量。同样一页中文、英文或代码，在不同分词器版本下没有固定 token 数。比较价格或容量前，必须用目标模型的分词器和对话模板重算，字符数或另一个模型的账单都不能代替。批处理还会遇到补齐和截断：补齐带来无效计算，截断丢内容，产品要明确超长内容是拒绝、截断、摘要还是拆成多轮。</p>
-
-<h2 id="s2">14.2 上下文窗</h2>
-<p>上下文窗口是模型一次请求允许看到的 token 范围，不是免费仓库。模型卡标注 128K 只证明接口支持范围，不证明每种 128K 输入都有同样质量，更不证明延迟、吞吐和成本不变。长上下文同时改变两个阶段：prefill 要处理更长输入，注意力和矩阵运算增加；decode 要保存并反复读取更大的 KV 缓存。对密集 KV 缓存，可用一个近似式做第一轮容量规划：KV 显存约等于 2 乘 层数 乘 缓存 token 数 乘 KV 头数 乘 头维度 乘 每元素字节 乘 活跃序列数。这个式子不含块分配、并行切分、共享前缀和运行时余量，只适合数量级检查；采用分组查询注意力或滑动窗口的模型，增长系数会不同，不能一个公式套所有模型。<span class="ev ev-k">核</span></p>
-
-<div class="figure"><div class="fig-head"><span class="fnum">图 28</span>上下文窗口被什么占满</div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 160" width="100%" preserveAspectRatio="xMidYMid meet"><defs><marker id="ar" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L7.5,3 L0,6 z" fill="#4f86a0"/></marker><marker id="arg" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L7.5,3 L0,6 z" fill="#3d7a57"/></marker><marker id="arr" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L7.5,3 L0,6 z" fill="#c0524a"/></marker><marker id="ark" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L7.5,3 L0,6 z" fill="#888"/></marker><marker id="ard" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L7.5,3 L0,6 z" fill="#2f6f8f"/></marker><marker id="ara" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto"><path d="M0,0 L7.5,3 L0,6 z" fill="#b26a1b"/></marker></defs><text x="20" y="27" font-size="10.58" fill="#999" text-anchor="start" font-weight="600">闲聊问答　约 2K 上下文</text><rect x="20" y="34" width="44.8" height="26" rx="2" fill="#cfe0e8" stroke="#fff" stroke-width="0.8"/><text x="42.400000000000006" y="50.6" font-size="9.43" fill="#1a1a1a" text-anchor="middle">系统提示</text><rect x="64.80000000000001" y="34" width="123.2" height="26" rx="2" fill="#7fa8ba" stroke="#fff" stroke-width="0.8"/><text x="126.4" y="50.6" font-size="10.58" fill="#fff" text-anchor="middle">历史轮次</text><rect x="188.0" y="34" width="56.0" height="26" rx="2" fill="#2f6f8f" stroke="#fff" stroke-width="0.8"/><text x="216.0" y="50.6" font-size="9.43" fill="#fff" text-anchor="middle">本轮输入</text><rect x="244.0" y="34" width="336.0" height="26" rx="2" fill="#d3e3d6" stroke="#fff" stroke-width="0.8"/><text x="412.0" y="50.6" font-size="10.58" fill="#1a1a1a" text-anchor="middle">输出预留</text><text x="20" y="89" font-size="10.58" fill="#999" text-anchor="start" font-weight="600">编程智能体　约 200K 上下文</text><rect x="20" y="96" width="39.2" height="26" rx="2" fill="#cfe0e8" stroke="#fff" stroke-width="0.8"/><text x="39.6" y="112.6" font-size="9.43" fill="#1a1a1a" text-anchor="middle">工具定义</text><rect x="59.2" y="96" width="296.8" height="26" rx="2" fill="#7fa8ba" stroke="#fff" stroke-width="0.8"/><text x="207.60000000000002" y="112.6" font-size="10.58" fill="#fff" text-anchor="middle">代码库检索片段</text><rect x="356.0" y="96" width="168.0" height="26" rx="2" fill="#2f6f8f" stroke="#fff" stroke-width="0.8"/><text x="440.0" y="112.6" font-size="10.58" fill="#fff" text-anchor="middle">历史与工具返回</text><rect x="524.0" y="96" width="56.0" height="26" rx="2" fill="#d3e3d6" stroke="#fff" stroke-width="0.8"/><text x="552.0" y="112.6" font-size="9.43" fill="#1a1a1a" text-anchor="middle">输出预留</text><text x="20" y="146" font-size="10.58" fill="#999" text-anchor="start">两条的差别不在窗口大小，在于长窗口里绝大部分是可以被前缀缓存吃掉的稳定内容</text></svg><div class="fig-note">比例为常见形态示意，实际随框架、检索策略与工具数量变化很大。</div><div class="fig-use">客户说上下文二十万，真正要问的是里面检索片段占多少，那部分最稳定也最该被缓存住。</div></div>
-<h2 id="s3">14.3 三类负载</h2>
-<p>三类典型负载压的是不同资源。短问答输入输出都短，但到达率高、交互性强，对首字延迟的高分位最敏感。长文档让 prefill 和 KV 变重，单个请求就可能占据大量显存。agent 工作流会经历多轮模型调用、工具等待、共享系统提示、重试和长度变化，一次用户任务在后端展开成多次请求。因此负载必须用分布描述，不能只给平均值：</p>
-<table class="wrap" data-cards="1">
-<thead><tr><th>维度</th><th>至少记录什么</th><th>为什么</th></tr></thead>
-<tbody>
-<tr><td data-label="维度">输入长度</td><td data-label="至少记录什么">P50、P90、P99、最大值、语言与模板</td><td data-label="为什么">决定 prefill、KV 和截断风险</td></tr>
-<tr><td data-label="维度">输出长度</td><td data-label="至少记录什么">分布、停止原因、最大 token</td><td data-label="为什么">决定 decode 时长和连接占用</td></tr>
-<tr><td data-label="维度">到达过程</td><td data-label="至少记录什么">请求率、突发、日内变化</td><td data-label="为什么">决定队列和扩容窗口</td></tr>
-<tr><td data-label="维度">并发</td><td data-label="至少记录什么">在途请求数与租户分布</td><td data-label="为什么">决定动态状态和隔离压力</td></tr>
-<tr><td data-label="维度">前缀结构</td><td data-label="至少记录什么">共享长度、命中比例、版本</td><td data-label="为什么">决定前缀缓存是否有意义</td></tr>
-<tr><td data-label="维度">业务语义</td><td data-label="至少记录什么">交互、批量、工具调用、重试</td><td data-label="为什么">决定服务目标和失败语义</td></tr>
-</tbody></table>
-<p>模型版本也是负载定义的一部分：同名模型可能有不同权重、分词器、上下文配置、对话模板和量化，一次可复现实验必须固定权重哈希、分词器文件和模板。模型能力指标与服务指标还要分开：准确率回答输出是否有用，延迟和错误率回答系统怎样交付；量化或截断可能改善服务容量却让质量下降，一个合格的优化必须同时守住质量门槛和服务门槛。</p>
-
-<h2 id="s4">14.4 负载合同</h2>
-<p>8K 输入、1K 输出这样一句测试说明，仍然缺四项关键信息。</p>
+<div class="wrap"><aside><h3>AI 扫盲</h3><a class="on" href="../../learn/llm-inference-acceleration/">推理加速</a><h3>手册</h3><details class="book"><summary title="Token 工厂拆解手册：从 GPU、推理服务到合同与现金流">Token 工厂拆解手册<span class="n">45 章</span></summary><details class="part"><summary><i>一</i>行业坐标<span class="n">6</span></summary><a class="" href="../../learn/token-factory-01/">1 阅读指南</a><a class="" href="../../learn/token-factory-02/">2 需求起点</a><a class="" href="../../learn/token-factory-03/">3 供给格局</a><a class="" href="../../learn/token-factory-04/">4 推理成业</a><a class="" href="../../learn/token-factory-05/">5 计量链路</a><a class="" href="../../learn/token-factory-06/">6 角色地图</a></details><details class="part"><summary><i>二</i>业务闭环<span class="n">3</span></summary><a class="" href="../../learn/token-factory-07/">7 产品边界</a><a class="" href="../../learn/token-factory-08/">8 产能成品</a><a class="" href="../../learn/token-factory-09/">9 六流闭环</a></details><details class="part"><summary><i>三</i>算力底座<span class="n">4</span></summary><a class="" href="../../learn/token-factory-10/">10 显存装载</a><a class="" href="../../learn/token-factory-11/">11 互联存储</a><a class="" href="../../learn/token-factory-12/">12 机房运维</a><a class="" href="../../learn/token-factory-13/">13 资产周期</a></details><details class="part"><summary><i>四</i>推理系统<span class="n">10</span></summary><a class="" href="../../learn/token-factory-14/">14 模型负载</a><a class="" href="../../learn/token-factory-15/">15 请求链路</a><a class="" href="../../learn/token-factory-16/">16 缓存机制</a><a class="" href="../../learn/token-factory-17/">17 批处理层</a><a class="" href="../../learn/token-factory-18/">18 并行策略</a><a class="" href="../../learn/token-factory-19/">19 加速手段</a><a class="" href="../../learn/token-factory-20/">20 引擎选型</a><a class="" href="../../learn/token-factory-21/">21 集群调度</a><a class="" href="../../learn/token-factory-22/">22 服务指标</a><a class="" href="../../learn/token-factory-23/">23 可靠交付</a></details><details class="part"><summary><i>五</i>生意算法<span class="n">7</span></summary><a class="" href="../../learn/token-factory-24/">24 成本结构</a><a class="" href="../../learn/token-factory-25/">25 收入结构</a><a class="" href="../../learn/token-factory-26/">26 单位经济</a><a class="" href="../../learn/token-factory-27/">27 单机模型</a><a class="" href="../../learn/token-factory-28/">28 合同结算</a><a class="" href="../../learn/token-factory-29/">29 资本结构</a><a class="" href="../../learn/token-factory-30/">30 资金风险</a></details><details class="part"><summary><i>六</i>跨境结构<span class="n">6</span></summary><a class="" href="../../learn/token-factory-31/">31 主体结构</a><a class="" href="../../learn/token-factory-32/">32 监管坐标</a><a class="" href="../../learn/token-factory-33/">33 数据路径</a><a class="" href="../../learn/token-factory-34/">34 风险台账</a><a class="" href="../../learn/token-factory-35/">35 运营体系</a><a class="" href="../../learn/token-factory-36/">36 团队形态</a></details><details class="part"><summary><i>七</i>案例映射<span class="n">5</span></summary><a class="" href="../../learn/token-factory-37/">37 案例背景</a><a class="" href="../../learn/token-factory-38/">38 叙事流变</a><a class="" href="../../learn/token-factory-39/">39 论断映射</a><a class="" href="../../learn/token-factory-40/">40 核验方法</a><a class="" href="../../learn/token-factory-41/">41 待核清单</a></details><details class="part"><summary><i></i>附录<span class="n">4</span></summary><a class="" href="../../learn/token-factory-appendix-a/">A 术语对照</a><a class="" href="../../learn/token-factory-appendix-b/">B 公式误读</a><a class="" href="../../learn/token-factory-appendix-c/">C 数字口径</a><a class="" href="../../learn/token-factory-appendix-d/">D 证据账本</a></details></details></aside><main><h1>推理加速</h1><p class="meta"><span>AI 扫盲</span><span>约 9 分钟</span><span>更新于 2026-08-04</span></p><h2 id="s1">为什么你要懂这个</h2>
+<p>你在跟客户谈大模型服务时，客户一定会问一句&quot;你们能跑多快&quot;。如果你只能回答&quot;挺快的&quot;，这个单子基本就黄了。更糟的是，你可能会被供应商或同行用一堆数字唬住，签下性价比很差的方案。理解推理加速的基本逻辑，你就能自己算出&quot;多快&quot;、知道钱花在哪、判断对方报价是否合理。</p>
+<h2 id="s2">一句话说清</h2>
+<p>大模型回答慢的根源是搬运数据，不是算得慢。所有加速技术都在解决这一个问题。</p>
+<h2 id="s3">打个比方</h2>
+<p>想象一个超人站在传送带旁边。超人一秒能做一千次动作，但传送带一秒只能送三件原料过来。超人大部分时间在等原料，真正干活的时间不到百分之一。想让超人产出更多，有三个办法：把原料压缩小一点让传送带送得更快、一次多送几件原料让超人忙起来、或者让超人一次处理一件原料时顺便把下一件也预判了。</p>
+<p>这个比方哪里不成立：真实场景里，传送带（显存带宽）和超人（计算单元）是同一块芯片上的部件，不是两个可以分开采购的设备。另外，压缩原料（量化）会损失一点精度，不是完全免费的。</p>
+<h2 id="s4">拆开讲</h2>
+<h3>大模型回答为什么那么慢？</h3>
+<p>大模型生成回答的方式是一个字一个字往外蹦，这叫自回归生成。每蹦出一个字，都要把整个模型的全部参数（可以理解成模型的&quot;记忆&quot;）从显存搬到计算单元过一遍。一个 700 亿参数的模型，光参数就有 70 到 140 GB，搬一遍要几十毫秒。而真正计算这一个字只需要不到 0.1 毫秒。也就是说，99% 以上的时间都花在&quot;搬&quot;上，不是在&quot;算&quot;。</p>
+<h3>为什么不能一次把整段话都算出来？</h3>
+<p>因为模型根本不知道下一句要说什么。它每一步只能根据已经生成的内容，预测下一个字是什么。预测完一个字，把这个字加进去，再预测下一个。这个过程天然是串行的，没法并行。就像你写文章，写第二句之前必须先知道第一句写了什么。这是模型的工作机制决定的，不是工程偷懒。</p>
+<h3>那&quot;快&quot;和&quot;慢&quot;到底怎么衡量？</h3>
+<p>两个关键指标：首字延迟（用户发出请求到看到第一个字的时间）和生成速度（每秒蹦出多少个字）。首字延迟取决于输入有多长，生成速度取决于模型多大、硬件多强。一个 700 亿参数的模型在主流显卡上，每秒大约能生成 40 到 5000 个字，差距取决于下面要讲的加速技术。</p>
+<h3>加速技术都在动什么？</h3>
+<p>所有加速技术本质上都在做三件事之一：减少要搬运的数据量（把参数从 2 字节压缩到 1 字节，搬运时间直接减半）、让一次搬运同时服务更多用户（把几十个用户的请求合并处理，搬运一次算几十份活）、或者把算过的中间结果存下来复用（多个用户问相似问题时，前面相同的部分只算一次）。</p>
+<h3>为什么多卡反而可能更慢？</h3>
+<p>多张卡协同工作时，卡与卡之间要频繁传数据。卡间通信的速度比卡内慢几十倍。如果切分方式不对，通信开销会吃掉多卡带来的收益。这就像请了十个工人，但九个人都在忙着互相递工具，真正干活的时间反而少了。</p>
+<h2 id="s5">再深一点</h2>
+<p><strong>这一节写给工程，业务读者可以跳过。</strong></p>
+<p>核心瓶颈的量化依据：以 70B FP8 模型为例，权重 70 GB，HBM 带宽 3 TB/s，单次搬运耗时 70 ÷ 3000 = 23.3 ms。单 token 计算量约 2 × 参数量 = 1.4×10¹¹ FLOPs，FP8 算力 2×10¹⁵ FLOPS，计算耗时 0.07 ms。Decode 阶段计算占比 0.07 ÷ 23.3 ≈ 0.3%，即 99.7% 时间在搬运。这就是 memory-bound 的由来。</p>
+<p>算术强度阈值 = 算力 ÷ 带宽 = 2000×10¹² ÷ 3×10¹² ≈ 333。每字节计算次数低于 333 即为搬运瓶颈。Decode 单 token 每字节只算 1 到 2 次，必然 memory-bound。Batch = 333 时计算时间与搬运时间相等，是利用率打满的甜点。</p>
+<p>各加速技术的量化收益（70B FP8 基准）：</p>
 <ul>
-<li>8K 是固定值、上限，还是平均</li>
-<li>1K 是强制生成，还是最多生成</li>
-<li>提示词是自然文本、随机 token，还是共享系统提示</li>
-<li>请求是一次性发出、固定并发循环，还是按独立到达过程进入</li>
+<li>权重量化 FP16 → FP8：搬运时间 46.7 ms → 23.3 ms，速度约 2 倍。INT4 进一步到 11.7 ms，但精度损失 2 到 5%，需实测。</li>
+<li>Continuous Batching：利用率从 batch=1 的 0.3% 拉到 batch=128 的 38%，吞吐提升 3 到 10 倍。vLLM 2023 年核心创新，现为行业标准。</li>
+<li>Speculative Decoding：小模型猜 5 个候选 token，大模型一次验证。因 Decode 是 memory-bound，验证 5 个 token 与验证 1 个搬运成本相同。端到端约 3 倍加速。EAGLE-3 复用大模型自身浅层做猜测，命中率 70 到 80%，2026 年 SOTA。</li>
+<li>PagedAttention：KV Cache 分页管理，浪费率从 60 到 80% 降至 5% 以下，同卡并发提升 2 到 4 倍。</li>
+<li>Prefix Caching：共享前缀的 KV Cache 只算一次。SGLang 的 RadixAttention 用基数树管理任意前缀复用，多轮对话场景比 vLLM 快 30 到 50%。</li>
+<li>分离式部署：Prefill（compute-bound）与 Decode（memory-bound）分到不同节点池，各自跑在甜点，单 token 成本省 30 到 50%。但 KV Cache 跨机传输依赖 InfiniBand，10 GB 数据用 100 GbE 传需 800 ms，用 400 Gb IB 只需 200 ms。不上 IB，分离式收益被网络吃掉。</li>
 </ul>
-<p>这四个选择会改变 prefill、KV、缓存命中和队列。一份可执行的负载说明应包含四类字段：内容（语言、领域、模板、质量标签）、形状（输入输出 token 的联合分布）、时间（到达率、突发、会话间隔、持续时间）、状态（共享前缀、多轮历史、缓存命中、取消与重试）。另一支团队只有拿到这四类字段才能复现实验。输入和输出长度还可能相关：agent 的工具返回会扩大下一轮上下文，分别随机采样会破坏真实相关性，容量模型最好从脱敏的生产追踪抽样，保留联合分布。</p>
+<p>引擎对比（H100 80GB, Llama 3.3 70B FP8）：vLLM 约 12,500 tokens/s，SGLang 约 16,200，TensorRT-LLM 约 14,500 到 16,500。SGLang 比 vLLM 快约 30%，但生态成熟度略低。TensorRT-LLM 编译 70B 模型需 20 到 30 分钟，模型架构变更需重编。</p>
+<p>边界与失效模式：量化在低精度下可能损失推理质量，需按场景实测；投机解码的收益取决于猜测命中率，代码生成场景命中率高，自由对话场景可能打折；分离式部署在集群规模小于 32 卡时收益不明显，网络拓扑设计不当可能反而变慢。</p>
+<h2 id="s6">跟我们业务什么关系</h2>
+<p>我们做 MaaS 服务，核心成本就是 GPU 推理。客户问&quot;能跑多快&quot;，本质是在问&quot;你的成本结构能不能支撑我长期用&quot;。不懂推理加速，我们会在两个地方吃亏：一是给客户报价时算不出真实成本，二是选型时被供应商牵着走。我们现在的做法是先跑通 vLLM baseline，开 FP8 量化和 Continuous Batching，后续评估 SGLang 做前缀缓存优化。这套路径的每一步，都需要用本文的公式去验证收益是否兑现。</p>
+<h2 id="s7">你现在能做什么</h2>
+<ol>
+<li>用搬运时间公式算一下我们主力模型的单 token 物理下限：模型大小 ÷ 显存带宽，把结果记在笔记本上。完成标志：能不看资料说出这个数字。</li>
+<li>查一下我们当前推理服务用的什么引擎、开没开 FP8 量化和 Continuous Batching。完成标志：在内部文档里找到对应配置并记录。</li>
+<li>下次跟客户聊性能时，用&quot;结论一句 + 推导两句 + 代价一句&quot;的结构回答，不要只给结论。完成标志：完成一次这样的对话并复盘。</li>
+</ol>
+<h2 id="s8">自测</h2>
+<ol>
+<li><p>大模型推理慢的根本原因是什么？
+A. GPU 算力不够
+B. 数据搬运速度远慢于计算速度
+C. 模型太大装不进显存
+D. 网络带宽不够</p>
+</li>
+<li><p>Decode 阶段 GPU 算力利用率大约是多少？
+A. 60 到 80%
+B. 30 到 50%
+C. 1 到 5%
+D. 100%</p>
+</li>
+<li><p>以下哪项技术是通过&quot;减少搬运量&quot;来加速的？
+A. Continuous Batching
+B. Speculative Decoding
+C. 权重量化
+D. PagedAttention</p>
+</li>
+</ol>
+<details>
+<summary>查看答案</summary>
 
-<h2 id="s5">14.5 数据陷阱</h2>
-<p>三个常见数据集陷阱。第一是随机 token：便于控制长度，却没有自然语言的前缀和停止行为，适合测底层形状，不能代表产品流量。第二是复制同一个提示词：制造极高的前缀缓存命中，适合测缓存上界，不能当一般吞吐。第三是只保留成功请求：被截断、取消、超时和重试的请求也占过资源，删掉它们会系统性低估容量。上线前至少建四套负载集：单请求微基准确认阶段下界，标准混合负载做版本回归，高峰突发负载测准入和队列，真实业务回放做最终验收。服务方容易展示短、整齐、可批处理的样本，客户带来的长尾、重试和多轮调用才是抬高成本与尾延迟的部分，最终验收必须保留真实分布。</p>
-<div class="ask"><span class="label">追问</span><span class="body">性能数字对应的负载包能不能给出四类字段让我方复现；长度分布是 P99 还是平均；失败和重试的请求算没算进去。</span></div>
-</div><h2>修订记录</h2><table><tr><th>日期</th><th>改了什么</th><th>为什么</th><th>谁</th></tr><tr><td>2026-08-04</td><td>按章导入，正文与插图保持原样</td><td>原稿结构清晰，重写反而损失信息</td><td>工程</td></tr></table><div class="nav"><a href="../token-factory-13/"><span>上一章</span>13 资产周期</a><a class="next" href="../token-factory-15/"><span>下一章</span>15 请求链路</a></div></main><div class="rail"><nav class="page-toc"><b>本章</b><a href="#s1">14.1 分词入口</a><a href="#s2">14.2 上下文窗</a><a href="#s3">14.3 三类负载</a><a href="#s4">14.4 负载合同</a><a href="#s5">14.5 数据陷阱</a></nav></div></div>
+<ol>
+<li>B。算力是带宽的约 300 倍，Decode 阶段 99.7% 的时间在等数据搬运。</li>
+<li>C。Decode 是 memory-bound，算力利用率只有 1 到 5%，这正是加速技术的攻击目标。</li>
+<li>C。量化把参数从 2 字节压到 1 字节，搬运量直接减半。其他三项分别是用闲置算力或管理 KV Cache。</li>
+</ol>
+</details>
+
+<h2 id="s9">术语表与来源</h2>
+<ul>
+<li>自回归生成：模型一个字一个字往外蹦的生成方式，每步只预测下一个字。</li>
+<li>Prefill：处理用户输入、生成第一个字的阶段，算力利用率较高。</li>
+<li>Decode：逐字生成后续内容的阶段，搬运是瓶颈。</li>
+<li>KV Cache：缓存历史字特征的技术，让自回归从平方级复杂度降到线性，但占显存。</li>
+<li>量化：用更少的字节存模型参数，减少搬运量。</li>
+<li>Batching：把多个请求合并处理，一次搬运服务多个用户。</li>
+<li>算术强度：算力除以带宽的比值，判断瓶颈在算还是搬。</li>
+<li>TPOT：每个输出字所需时间。</li>
+<li>TTFT：首字延迟，用户发出请求到看到第一个字的时间。</li>
+<li>memory-bound：瓶颈在数据搬运。</li>
+<li>compute-bound：瓶颈在计算。</li>
+</ul>
+<p>来源：内部教学手册《LLM 推理加速教学手册》（2026 年 5 月，不公开）。</p>
+<h2>修订记录</h2><table><tr><th>日期</th><th>改了什么</th><th>为什么</th><th>谁</th></tr><tr><td>2026-08-04</td><td>初稿</td><td>首次发布</td><td>工程</td></tr></table><div class="nav"><span></span><span></span></div></main><div class="rail"></div></div>
 <footer>共 46 篇 · 内容自动生成，有问题在飞书里 @AI小助手</footer>
 <script>const BASE="../../";
 const B=document.getElementById('burger'),A=document.querySelector('aside');

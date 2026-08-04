@@ -1,5 +1,12 @@
 [
  {
+  "slug": "llm-inference-acceleration",
+  "title": "推理加速",
+  "summary": "大模型回答慢的根源是搬运数据，不是算得慢。所有加速技术都在解决这一个问题。",
+  "track": "ai-basics",
+  "updated": "2026-08-04"
+ },
+ {
   "slug": "token-factory-01",
   "title": "1 阅读指南",
   "summary": "全书路线 · 术语基线 · 证据分级",
