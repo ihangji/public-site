@@ -129,8 +129,10 @@ details summary{cursor:pointer;font-weight:600}
 .ev-r{color:#b26a1b}.ev-k{color:#3d7a57}.ev-w{color:#c0524a}.ev-e{color:#2f6f8f}
 .rd{font-size:14px;color:var(--muted);margin:10px 0}
 .subtle{color:var(--muted);font-size:14px;font-style:italic}
-/* 原稿是给 A4 排的，这两类在网页上没有意义 */
-.cover,.toc,.part,.end{display:none}
+/* 原稿是给 A4 排的，封面/目录/部分扉页/尾页在网页上没有意义。
+   ★ 必须限定在 .doc 里：不限定的话 .part 会把侧栏那个 <details class="part">
+   一起隐藏，8 个部分连同里面 45 章全不可见，侧栏只剩一个光秃秃的书名。 */
+.doc .cover,.doc .toc,.doc .part,.doc .end{display:none}
 #results a{display:block;padding:11px 16px;border-bottom:1px solid var(--line);color:var(--fg)}
 #results a:hover{background:var(--card);text-decoration:none}
 #results b{color:var(--accent)}
