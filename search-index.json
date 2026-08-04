@@ -1,26 +1,5 @@
 [
  {
-  "slug": "inference-engine",
-  "title": "推理引擎：模型对外提供服务的那一层",
-  "summary": "推理引擎是把训练好的模型跑起来、接住用户提问并吐出答案的那套程序",
-  "track": "ai-basics",
-  "updated": "2026-08-03"
- },
- {
-  "slug": "kv-cache",
-  "title": "推理里的 KV Cache",
-  "summary": "模型把算过的中间结果存起来重复用，生成更快，代价是占显卡内存，对话越长占得越多",
-  "track": "ai-basics",
-  "updated": "2026-08-03"
- },
- {
-  "slug": "what-is-token",
-  "title": "Token 是什么",
-  "summary": "模型处理文本的最小计费单位，一个 token 大约对应一个汉字。",
-  "track": "ai-basics",
-  "updated": "2026-08-03"
- },
- {
   "slug": "token-factory-01",
   "title": "1 阅读指南",
   "summary": "全书路线 · 术语基线 · 证据分级",
@@ -334,12 +313,5 @@
   "summary": "回到三段录音，逐条检查主张、证据、条件和仍然空着的位置。",
   "track": "eng",
   "updated": "2026-08-04"
- },
- {
-  "slug": "longe2v-event-based-video-diffusion",
-  "title": "事件相机视频生成：LongE2V 与视频扩散模型",
-  "summary": "事件相机输出的稀疏信号，可用视频扩散模型还原成高清、稳定、可预测的视频。",
-  "track": "eng",
-  "updated": "2026-08-03"
  }
 ]
