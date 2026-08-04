@@ -1,12 +1,5 @@
 [
  {
-  "slug": "first-token-latency-and-throughput",
-  "title": "首字延迟与吞吐",
-  "summary": "首字延迟指一个用户等第一个字的时间，和系统总产字量不是一回事。",
-  "track": "ai-basics",
-  "updated": "2026-08-03"
- },
- {
   "slug": "inference-engine",
   "title": "推理引擎：模型对外提供服务的那一层",
   "summary": "推理引擎是把训练好的模型跑起来、接住用户提问并吐出答案的那套程序",
@@ -32,315 +25,315 @@
   "title": "1 阅读指南",
   "summary": "全书路线 · 术语基线 · 证据分级",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-02",
   "title": "2 需求起点",
   "summary": "变现困局 · 编程拐点 · 需求曲线 · 开源前提",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-03",
   "title": "3 供给格局",
   "summary": "卡的形态 · 全球链路 · 管制作用 · 境内结构 · 国产约束",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-04",
   "title": "4 推理成业",
   "summary": "独立成业 · 工程六问 · 持续交付 · 两岸会合",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-05",
   "title": "5 计量链路",
   "summary": "两条链路 · 四层条件 · 计量反馈 · 三个分母 · 账务实现",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-06",
   "title": "6 角色地图",
   "summary": "分工由来 · 四层角色 · 控制四列 · 盈利方式 · 客户分层 · 替代判断",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-07",
   "title": "7 产品边界",
   "summary": "六类产品 · 工作概念 · 五维选择 · 风险移动 · 货架许可 · 渠道上架",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-08",
   "title": "8 产能成品",
   "summary": "七道闸门 · 经营对照 · 最小启动",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-09",
   "title": "9 六流闭环",
   "summary": "资产请求 · 计量数据 · 合同资金 · 故障会合 · 审查用法",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-10",
   "title": "10 显存装载",
   "summary": "五类资源 · 显存账本 · 精度作用 · 装载链条 · 三道门槛 · 交付证据",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-11",
   "title": "11 互联存储",
   "summary": "三种距离 · 集合通信 · 四类流量 · 存储路径 · 发布风暴 · 拓扑验收",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-12",
   "title": "12 机房运维",
   "summary": "密度变化 · 六次变成 · 资源约束 · 网络体验 · 口径差异 · 四份账本",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-13",
   "title": "13 资产周期",
   "summary": "三只时钟 · 代际速度 · 参数膨胀 · 恢复链条 · 备件保险 · 状态管理 · 残值假设",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-14",
   "title": "14 模型负载",
   "summary": "分词入口 · 上下文窗 · 三类负载 · 负载合同 · 数据陷阱",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-15",
   "title": "15 请求链路",
   "summary": "生命周期 · 两段负载 · 八个节点 · 队列反馈 · 流式形态 · 取消重试",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-16",
   "title": "16 缓存机制",
   "summary": "缓存原理 · 分页管理 · 前缀复用 · 存算分离 · 生命周期 · 共享边界",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-17",
   "title": "17 批处理层",
   "summary": "连续批次 · 排队模型 · 调度资源 · 优先策略 · 验收方法",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-18",
   "title": "18 并行策略",
   "summary": "切分方式 · 专家并行 · 分离部署 · 异构组合 · 路由反馈 · 池间配比",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-19",
   "title": "19 加速手段",
   "summary": "投机解码 · 量化取舍 · 算子内核",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-20",
   "title": "20 引擎选型",
   "summary": "引擎全景 · 能力矩阵 · 选型判据",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-21",
   "title": "21 集群调度",
   "summary": "调度分层 · 编排底座 · 扩容反馈 · 故障分域 · 观测体系",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-22",
   "title": "22 服务指标",
   "summary": "指标定义 · 三角取舍 · 利用误读 · 排队曲线 · 测量误差 · 压测方法",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-23",
   "title": "23 可靠交付",
   "summary": "基准变量 · 观测三层 · 目标协议 · 错误预算 · 故障演练 · 恢复目标",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-24",
   "title": "24 成本结构",
   "summary": "成本科目 · 租买对比",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-25",
   "title": "25 收入结构",
   "summary": "计价单位 · 售价来源 · 时区套利",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-26",
   "title": "26 单位经济",
   "summary": "分母纪律 · 成本分摊 · 收入构成 · 三种情景 · 交叉判断 · 毛差利润",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-27",
   "title": "27 单机模型",
   "summary": "打平推导 · 利用杠杆 · 优化乘数 · 敏感分析",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-28",
   "title": "28 合同结算",
   "summary": "交付锁定 · 计量条款 · 承诺补偿 · 验收账单 · 结算路径 · 退出设计",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-29",
   "title": "29 资本结构",
   "summary": "三种玩法 · 基金术语 · 回本口径 · 现金曲线",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-30",
   "title": "30 资金风险",
   "summary": "资本组织 · 载体作用 · 承诺边界 · 三组比率 · 三条时线 · 成立条件",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-31",
   "title": "31 主体结构",
   "summary": "五个位置 · 三层主体 · 名实之分 · 责任路径 · 属地选择 · 事实优先",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-32",
   "title": "32 监管坐标",
   "summary": "观察节点 · 受益穿透 · 管制核验 · 制裁筛查 · 执法现状 · 规则版本",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-33",
   "title": "33 数据路径",
   "summary": "七类对象 · 法域规则 · 实际路径 · 请求检查 · 责任矩阵",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-34",
   "title": "34 风险台账",
   "summary": "风险清单 · 硬性边界 · 残余风险 · 内容风险",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-35",
   "title": "35 运营体系",
   "summary": "货源鉴别 · 交付运维",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-36",
   "title": "36 团队形态",
   "summary": "编制模型 · 自动边界 · 知识沉淀",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-37",
   "title": "37 案例背景",
   "summary": "录音边界 · 时间线索 · 角色矩阵",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-38",
   "title": "38 叙事流变",
   "summary": "三段轨迹 · 机会叙事 · 组织分配 · 变量反咬 · 变形结论",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-39",
   "title": "39 论断映射",
   "summary": "供给论断 · 技术论断 · 财务论断 · 结构论断",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-40",
   "title": "40 核验方法",
   "summary": "六层依赖 · 资源验证 · 技术验证 · 需求漏斗 · 工作方法 · 证据总表",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-41",
   "title": "41 待核清单",
   "summary": "数字缺口 · 事实待核 · 提问清单",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-appendix-a",
   "title": "A 术语对照",
   "summary": "回到三段录音，逐条检查主张、证据、条件和仍然空着的位置。",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-appendix-b",
   "title": "B 公式误读",
   "summary": "回到三段录音，逐条检查主张、证据、条件和仍然空着的位置。",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-appendix-c",
   "title": "C 数字口径",
   "summary": "回到三段录音，逐条检查主张、证据、条件和仍然空着的位置。",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "token-factory-appendix-d",
   "title": "D 证据账本",
   "summary": "回到三段录音，逐条检查主张、证据、条件和仍然空着的位置。",
   "track": "eng",
-  "updated": "2026-08-03"
+  "updated": "2026-08-04"
  },
  {
   "slug": "longe2v-event-based-video-diffusion",
