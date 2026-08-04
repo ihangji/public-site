@@ -104,6 +104,10 @@ aside details.part>summary .n{font-weight:400;opacity:.7}
 /* 标题靠【间距】分层，不靠横线切。原来 h2 顶着一条 border-top，
    一章十几节就是十几条横线，页面被切得很碎。 */
 h1{font-size:34px;line-height:1.3;font-weight:700;margin:.1em 0 .25em;letter-spacing:-.01em}
+/* 正文第一个块不吃上边距，否则标题和第一节之间白白空一大截 */
+main>:first-child,.doc>:first-child{margin-top:0}
+main>h1+.meta{margin-top:-.2em}
+main>.meta+h2{margin-top:1.4em}
 h2{font-size:23px;line-height:1.4;font-weight:600;margin:2.2em 0 .5em}
 h3{font-size:18.5px;line-height:1.45;font-weight:600;margin:1.7em 0 .35em}
 h4{font-size:16.5px;font-weight:600;margin:1.4em 0 .3em}
@@ -127,6 +131,40 @@ details{margin:1em 0;padding:.4em .9em;border-radius:6px;background:var(--card)}
 details summary{cursor:pointer;font-weight:600}
 .meta{color:var(--muted);font-size:13.5px;margin:.5em 0 2.2em}
 .meta span+span::before{content:"·";margin:0 8px;opacity:.55}
+/* 页头一小块：标题 + 一句话 + 灰色元信息，下面留一条极淡的线收口 */
+.hero{padding-bottom:22px;margin-bottom:30px;border-bottom:1px solid var(--line)}
+.hero h1{margin:0 0 .3em}
+.hero>p{color:var(--muted);font-size:15.5px;margin:.2em 0}
+.hero .meta{margin:.7em 0 0}
+.lead{color:var(--muted);font-size:14px;margin:-.2em 0 .8em}
+
+/* 行列表：目录和散篇都用这个。45 张卡片要滚很久，而目录的活是「一眼扫完」。
+   靠 hover 底色区分行，不画格线 —— 同 Notion 的列表。 */
+.rows{display:flex;flex-direction:column;margin:0 0 34px}
+.rows a{display:flex;align-items:baseline;gap:12px;padding:9px 12px;margin:0 -12px;
+  border-radius:6px;color:var(--fg);transition:background .12s}
+.rows a:hover{background:var(--hover);text-decoration:none}
+.rows b{font-weight:600;font-size:15.5px;flex:none}
+.rows span{color:var(--muted);font-size:14px;line-height:1.5;min-width:0}
+/* 章号单独一列固定宽，41 章的编号才对得齐 */
+.rows.chapters em{font-style:normal;color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums;
+  flex:none;width:2.4em;text-align:right}
+.rows.chapters b{width:5.5em}
+/* 部分标题：序号拎出来当前缀，和侧栏一致 */
+.part-h{font-size:15px;font-weight:600;color:var(--muted);margin:26px 0 6px;
+  letter-spacing:.02em;display:flex;align-items:center;gap:8px}
+.part-h i{font-style:normal;color:var(--accent);font-weight:700;
+  display:inline-block;min-width:1.6em;text-align:center}
+
+/* 手册在首页是一整块，不是网格里的小卡 —— 它是这个站现在的主体 */
+.book-card{display:block;background:var(--card);border-radius:10px;padding:20px 22px;
+  margin:0 0 34px;color:var(--fg);transition:background .15s}
+.book-card:hover{background:var(--hover);text-decoration:none}
+.book-card b{display:block;font-size:19px;font-weight:600}
+.book-card i{display:block;font-style:normal;color:var(--muted);font-size:14.5px;margin-top:3px}
+.book-card p{color:var(--muted);font-size:14px;line-height:1.65;margin:.7em 0 0}
+.book-card p.meta{font-size:12.5px;margin-top:.5em}
+
 /* 卡片不描边，用极淡的底色 + hover 抬一下，这是 Notion 那套「几乎没有 chrome」的做法 */
 .cards{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));margin:14px 0 38px}
 .card{border-radius:8px;padding:14px 16px;background:var(--card);transition:background .15s}
@@ -239,7 +277,7 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:13px;paddin
 <div class="figure"><div class="fig-head"><span class="fnum">图 55</span>租与买的现金流形状对比</div><svg preserveaspectratio="xMidYMid meet" viewbox="0 0 600 292" width="100%" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ar" markerheight="9" markerwidth="9" orient="auto" refx="7.5" refy="3"><path d="M0,0 L7.5,3 L0,6 z" fill="#4f86a0"></path></marker><marker id="arg" markerheight="9" markerwidth="9" orient="auto" refx="7.5" refy="3"><path d="M0,0 L7.5,3 L0,6 z" fill="#3d7a57"></path></marker><marker id="arr" markerheight="9" markerwidth="9" orient="auto" refx="7.5" refy="3"><path d="M0,0 L7.5,3 L0,6 z" fill="#c0524a"></path></marker><marker id="ark" markerheight="9" markerwidth="9" orient="auto" refx="7.5" refy="3"><path d="M0,0 L7.5,3 L0,6 z" fill="#888"></path></marker><marker id="ard" markerheight="9" markerwidth="9" orient="auto" refx="7.5" refy="3"><path d="M0,0 L7.5,3 L0,6 z" fill="#2f6f8f"></path></marker></defs><text fill="#3d7a57" font-size="11.04" font-weight="700" text-anchor="start" x="20" y="32">长期租赁</text><rect fill="#c0524a" height="46" opacity="0.7" rx="3" width="70" x="60" y="42"></rect><text fill="#fff" font-size="9.89" text-anchor="middle" x="95" y="70">预付</text><rect fill="#3d7a57" height="16" opacity="0.75" rx="2" width="28" x="136" y="56"></rect><rect fill="#3d7a57" height="16" opacity="0.75" rx="2" width="28" x="170" y="56"></rect><rect fill="#3d7a57" height="16" opacity="0.75" rx="2" width="28" x="204" y="56"></rect><rect fill="#3d7a57" height="16" opacity="0.75" rx="2" width="28" x="238" y="56"></rect><rect fill="#3d7a57" height="16" opacity="0.75" rx="2" width="28" x="272" y="56"></rect><rect fill="#3d7a57" height="16" opacity="0.75" rx="2" width="28" x="306" y="56"></rect><rect fill="#3d7a57" height="16" opacity="0.75" rx="2" width="28" x="340" y="56"></rect><rect fill="#3d7a57" height="16" opacity="0.75" rx="2" width="28" x="374" y="56"></rect><rect fill="#3d7a57" height="16" opacity="0.75" rx="2" width="28" x="408" y="56"></rect><rect fill="#3d7a57" height="16" opacity="0.75" rx="2" width="28" x="442" y="56"></rect><rect fill="#3d7a57" height="16" opacity="0.75" rx="2" width="28" x="476" y="56"></rect><rect fill="#3d7a57" height="16" opacity="0.75" rx="2" width="28" x="510" y="56"></rect><line stroke="#ddd" stroke-width="1" x1="20" x2="580" y1="96" y2="96"></line><text fill="#666" font-size="10.12" text-anchor="middle" x="300" y="112">小额前期投入，此后每月净流入，回本快，但五年租金是刚性负债</text><line stroke="#eee" stroke-width="1" x1="20" x2="580" y1="128" y2="128"></line><text fill="#2f6f8f" font-size="11.04" font-weight="700" text-anchor="start" x="20" y="152">自购持有</text><rect fill="#c0524a" height="60" opacity="0.7" rx="3" width="190" x="60" y="162"></rect><text fill="#fff" font-size="10.35" text-anchor="middle" x="155" y="196">购置</text><rect fill="#2f6f8f" height="24" opacity="0.75" rx="2" width="20" x="256" y="182"></rect><rect fill="#2f6f8f" height="24" opacity="0.75" rx="2" width="20" x="282" y="182"></rect><rect fill="#2f6f8f" height="24" opacity="0.75" rx="2" width="20" x="308" y="182"></rect><rect fill="#2f6f8f" height="24" opacity="0.75" rx="2" width="20" x="334" y="182"></rect><rect fill="#2f6f8f" height="24" opacity="0.75" rx="2" width="20" x="360" y="182"></rect><rect fill="#2f6f8f" height="24" opacity="0.75" rx="2" width="20" x="386" y="182"></rect><rect fill="#2f6f8f" height="24" opacity="0.75" rx="2" width="20" x="412" y="182"></rect><rect fill="#2f6f8f" height="24" opacity="0.75" rx="2" width="20" x="438" y="182"></rect><rect fill="#2f6f8f" height="24" opacity="0.75" rx="2" width="20" x="464" y="182"></rect><rect fill="#2f6f8f" height="24" opacity="0.75" rx="2" width="20" x="490" y="182"></rect><rect fill="#2f6f8f" height="24" opacity="0.75" rx="2" width="20" x="516" y="182"></rect><rect fill="#2f6f8f" height="24" opacity="0.75" rx="2" width="20" x="542" y="182"></rect><line stroke="#ddd" stroke-width="1" x1="20" x2="580" y1="230" y2="230"></line><text fill="#666" font-size="10.12" text-anchor="middle" x="300" y="246">大额前期投入，单位收益更高，无持续付款义务，但残值风险自担</text><line stroke="#eee" stroke-width="1" x1="20" x2="580" y1="262" y2="262"></line><text fill="#555" font-size="10.81" text-anchor="start" x="20" y="284">两条曲线的形状差异，就是第 15 章要设计什么样的资金结构的根本原因。</text></svg><div class="fig-note">柱高为示意，不表示真实金额比例。横轴为月份。</div><div class="fig-use">租是拿小钱撬大盘子，买是拿大钱换低单价。前期只能租，因为要抢时间。</div></div>
 <p>录音里描述的路径是先租后买：一期以租赁为主快速起量，规模上到一定程度后转向持有重资产，因为再往上租会把市场价格抬起来。<span class="ev ev-r">录</span>这个先后顺序在逻辑上是通的，但两个阶段的风险性质完全不同（见第 13.7 节的残值分配表），不能用同一套指标衡量。电力与机柜对选址的物理约束已在第 12.1 节展开，此处只留一句：决定海外产能在哪里的不是地价也不是税，是电和机柜。</p>
 <div class="ask"><span class="label">追问</span><span class="body">拿货价锁在什么水平、锁多久；租约里的刚性义务总额是多少；对方讲的成本优势是结构性的还是签约时点性的。</span></div>
-</div><h2>修订记录</h2><table><tr><th>日期</th><th>改了什么</th><th>为什么</th><th>谁</th></tr><tr><td>2026-08-04</td><td>按章导入，正文与插图保持原样</td><td>原稿结构清晰，重写反而损失信息</td><td>工程</td></tr></table><div class="nav"><a href="../token-factory-23/"><span>上一章</span>23 可靠交付</a><a class="next" href="../token-factory-25/"><span>下一章</span>25 收入结构</a></div></main></div>
+</div><h2>修订记录</h2><table><tr><th>日期</th><th>改了什么</th><th>为什么</th><th>谁</th></tr><tr><td>2026-08-04</td><td>按章导入，正文与插图保持原样</td><td>原稿结构清晰，重写反而损失信息</td><td>工程</td></tr></table><div class="nav"><a href="../token-factory-23/"><span>上一章</span>23 可靠交付</a><a class="next" href="../token-factory-25/"><span>下一章</span>25 收入结构</a></div></main><div class="rail"></div></div>
 <footer>共 45 篇 · 内容自动生成，有问题在飞书里 @AI小助手</footer>
 <script>const BASE="../../";
 const B=document.getElementById('burger'),A=document.querySelector('aside');
