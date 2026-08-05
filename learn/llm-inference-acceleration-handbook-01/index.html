@@ -1,6 +1,6 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>D 证据账本 · 深言速舟学习站</title><meta name="description" content="回到三段录音，逐条检查主张、证据、条件和仍然空着的位置。">
+<title>公式速查卡 · 深言速舟学习站</title><meta name="description" content="① H800 硬件常数 · ② 算术强度阈值（最重要） · ③ 搬运时间公式 · ④ 计算时间公式">
 <style>/* 配色抄 Notion 的思路：不用纯黑纯灰，用带一点暖调的近黑和极淡的分隔线。
    边框一律低对比（透明度而不是实色），让页面靠留白分隔而不是靠线切割。 */
 :root{
@@ -247,50 +247,239 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:13px;paddin
 <a class="brand" href="../../">深言速舟 · 学习站</a>
 <div class="searchbox"><input id="q" placeholder="搜索（按 / 聚焦）" autocomplete="off"><div id="results"></div></div>
 </header>
-<div class="wrap"><aside><h3>手册</h3><details class="book"><summary title="LLM 推理加速：从 0 到 1 教学手册">LLM 推理加速<span class="n">6 章</span></summary><details class="part"><summary><i></i>正文<span class="n">1</span></summary><a class="" href="../../learn/llm-inference-acceleration-handbook-01/">公式速查卡</a></details><details class="part"><summary><i>一</i>：先建立物理直觉<span class="n">1</span></summary><a class="" href="../../learn/llm-inference-acceleration-handbook-02/">第一部分：先建立物理直觉</a></details><details class="part"><summary><i>二</i>：核心计算公式速记表<span class="n">1</span></summary><a class="" href="../../learn/llm-inference-acceleration-handbook-03/">第二部分：核心计算公式速记表</a></details><details class="part"><summary><i>三</i>：加速技术的三大家族<span class="n">1</span></summary><a class="" href="../../learn/llm-inference-acceleration-handbook-04/">第三部分：加速技术的三大家族</a></details><details class="part"><summary><i>四</i>：多卡 / 多机协同<span class="n">1</span></summary><a class="" href="../../learn/llm-inference-acceleration-handbook-05/">第四部分：多卡 / 多机协同</a></details><details class="part"><summary><i>五</i>：推理引擎选型<span class="n">1</span></summary><a class="" href="../../learn/llm-inference-acceleration-handbook-06/">第五部分：推理引擎选型</a></details></details><details class="book" open><summary title="Token 工厂拆解手册：从 GPU、推理服务到合同与现金流">Token 工厂拆解手册<span class="n">45 章</span></summary><details class="part"><summary><i>一</i>行业坐标<span class="n">6</span></summary><a class="" href="../../learn/token-factory-01/">1 阅读指南</a><a class="" href="../../learn/token-factory-02/">2 需求起点</a><a class="" href="../../learn/token-factory-03/">3 供给格局</a><a class="" href="../../learn/token-factory-04/">4 推理成业</a><a class="" href="../../learn/token-factory-05/">5 计量链路</a><a class="" href="../../learn/token-factory-06/">6 角色地图</a></details><details class="part"><summary><i>二</i>业务闭环<span class="n">3</span></summary><a class="" href="../../learn/token-factory-07/">7 产品边界</a><a class="" href="../../learn/token-factory-08/">8 产能成品</a><a class="" href="../../learn/token-factory-09/">9 六流闭环</a></details><details class="part"><summary><i>三</i>算力底座<span class="n">4</span></summary><a class="" href="../../learn/token-factory-10/">10 显存装载</a><a class="" href="../../learn/token-factory-11/">11 互联存储</a><a class="" href="../../learn/token-factory-12/">12 机房运维</a><a class="" href="../../learn/token-factory-13/">13 资产周期</a></details><details class="part"><summary><i>四</i>推理系统<span class="n">10</span></summary><a class="" href="../../learn/token-factory-14/">14 模型负载</a><a class="" href="../../learn/token-factory-15/">15 请求链路</a><a class="" href="../../learn/token-factory-16/">16 缓存机制</a><a class="" href="../../learn/token-factory-17/">17 批处理层</a><a class="" href="../../learn/token-factory-18/">18 并行策略</a><a class="" href="../../learn/token-factory-19/">19 加速手段</a><a class="" href="../../learn/token-factory-20/">20 引擎选型</a><a class="" href="../../learn/token-factory-21/">21 集群调度</a><a class="" href="../../learn/token-factory-22/">22 服务指标</a><a class="" href="../../learn/token-factory-23/">23 可靠交付</a></details><details class="part"><summary><i>五</i>生意算法<span class="n">7</span></summary><a class="" href="../../learn/token-factory-24/">24 成本结构</a><a class="" href="../../learn/token-factory-25/">25 收入结构</a><a class="" href="../../learn/token-factory-26/">26 单位经济</a><a class="" href="../../learn/token-factory-27/">27 单机模型</a><a class="" href="../../learn/token-factory-28/">28 合同结算</a><a class="" href="../../learn/token-factory-29/">29 资本结构</a><a class="" href="../../learn/token-factory-30/">30 资金风险</a></details><details class="part"><summary><i>六</i>跨境结构<span class="n">6</span></summary><a class="" href="../../learn/token-factory-31/">31 主体结构</a><a class="" href="../../learn/token-factory-32/">32 监管坐标</a><a class="" href="../../learn/token-factory-33/">33 数据路径</a><a class="" href="../../learn/token-factory-34/">34 风险台账</a><a class="" href="../../learn/token-factory-35/">35 运营体系</a><a class="" href="../../learn/token-factory-36/">36 团队形态</a></details><details class="part"><summary><i>七</i>案例映射<span class="n">5</span></summary><a class="" href="../../learn/token-factory-37/">37 案例背景</a><a class="" href="../../learn/token-factory-38/">38 叙事流变</a><a class="" href="../../learn/token-factory-39/">39 论断映射</a><a class="" href="../../learn/token-factory-40/">40 核验方法</a><a class="" href="../../learn/token-factory-41/">41 待核清单</a></details><details class="part" open><summary><i></i>附录<span class="n">4</span></summary><a class="" href="../../learn/token-factory-appendix-a/">A 术语对照</a><a class="" href="../../learn/token-factory-appendix-b/">B 公式误读</a><a class="" href="../../learn/token-factory-appendix-c/">C 数字口径</a><a class="on" href="../../learn/token-factory-appendix-d/">D 证据账本</a></details></details></aside><main><h1>D 证据账本</h1><p class="meta"><span><a href="../token-factory/">Token 工厂拆解手册：从 GPU、推理服务到合同与现金流</a></span><span>附录</span><span>约 13 分钟</span><span>更新于 2026-08-04</span></p><div class="doc"><p>本册配套一份 UTF-8 编码的 CSV 证据账本，作用是让任何一条结论都能被回溯到具体来源，并让待核项在后续尽调中被逐条关闭。字段与用法如下。</p>
-<table class="wrap">
-<thead><tr><th>字段</th><th>含义</th></tr></thead>
-<tbody>
-<tr><td>id</td><td>证据编号，与正文标记对应</td></tr>
-<tr><td>claim</td><td>被核验的论断原文或摘要</td></tr>
-<tr><td>grade</td><td>等级：录音口径、外部可核、示例测算、待核</td></tr>
-<tr><td>chapter</td><td>本册中的对应章节</td></tr>
-<tr><td>source</td><td>来源描述，外部可核项含出处</td></tr>
-<tr><td>asof</td><td>该来源的时点</td></tr>
-<tr><td>note</td><td>限制条件与使用提示</td></tr>
-<tr><td>action</td><td>待核项对应的核验动作</td></tr>
+<div class="wrap"><aside><h3>手册</h3><details class="book" open><summary title="LLM 推理加速：从 0 到 1 教学手册">LLM 推理加速<span class="n">6 章</span></summary><details class="part" open><summary><i></i>正文<span class="n">1</span></summary><a class="on" href="../../learn/llm-inference-acceleration-handbook-01/">公式速查卡</a></details><details class="part"><summary><i>一</i>：先建立物理直觉<span class="n">1</span></summary><a class="" href="../../learn/llm-inference-acceleration-handbook-02/">第一部分：先建立物理直觉</a></details><details class="part"><summary><i>二</i>：核心计算公式速记表<span class="n">1</span></summary><a class="" href="../../learn/llm-inference-acceleration-handbook-03/">第二部分：核心计算公式速记表</a></details><details class="part"><summary><i>三</i>：加速技术的三大家族<span class="n">1</span></summary><a class="" href="../../learn/llm-inference-acceleration-handbook-04/">第三部分：加速技术的三大家族</a></details><details class="part"><summary><i>四</i>：多卡 / 多机协同<span class="n">1</span></summary><a class="" href="../../learn/llm-inference-acceleration-handbook-05/">第四部分：多卡 / 多机协同</a></details><details class="part"><summary><i>五</i>：推理引擎选型<span class="n">1</span></summary><a class="" href="../../learn/llm-inference-acceleration-handbook-06/">第五部分：推理引擎选型</a></details></details><details class="book"><summary title="Token 工厂拆解手册：从 GPU、推理服务到合同与现金流">Token 工厂拆解手册<span class="n">45 章</span></summary><details class="part"><summary><i>一</i>行业坐标<span class="n">6</span></summary><a class="" href="../../learn/token-factory-01/">1 阅读指南</a><a class="" href="../../learn/token-factory-02/">2 需求起点</a><a class="" href="../../learn/token-factory-03/">3 供给格局</a><a class="" href="../../learn/token-factory-04/">4 推理成业</a><a class="" href="../../learn/token-factory-05/">5 计量链路</a><a class="" href="../../learn/token-factory-06/">6 角色地图</a></details><details class="part"><summary><i>二</i>业务闭环<span class="n">3</span></summary><a class="" href="../../learn/token-factory-07/">7 产品边界</a><a class="" href="../../learn/token-factory-08/">8 产能成品</a><a class="" href="../../learn/token-factory-09/">9 六流闭环</a></details><details class="part"><summary><i>三</i>算力底座<span class="n">4</span></summary><a class="" href="../../learn/token-factory-10/">10 显存装载</a><a class="" href="../../learn/token-factory-11/">11 互联存储</a><a class="" href="../../learn/token-factory-12/">12 机房运维</a><a class="" href="../../learn/token-factory-13/">13 资产周期</a></details><details class="part"><summary><i>四</i>推理系统<span class="n">10</span></summary><a class="" href="../../learn/token-factory-14/">14 模型负载</a><a class="" href="../../learn/token-factory-15/">15 请求链路</a><a class="" href="../../learn/token-factory-16/">16 缓存机制</a><a class="" href="../../learn/token-factory-17/">17 批处理层</a><a class="" href="../../learn/token-factory-18/">18 并行策略</a><a class="" href="../../learn/token-factory-19/">19 加速手段</a><a class="" href="../../learn/token-factory-20/">20 引擎选型</a><a class="" href="../../learn/token-factory-21/">21 集群调度</a><a class="" href="../../learn/token-factory-22/">22 服务指标</a><a class="" href="../../learn/token-factory-23/">23 可靠交付</a></details><details class="part"><summary><i>五</i>生意算法<span class="n">7</span></summary><a class="" href="../../learn/token-factory-24/">24 成本结构</a><a class="" href="../../learn/token-factory-25/">25 收入结构</a><a class="" href="../../learn/token-factory-26/">26 单位经济</a><a class="" href="../../learn/token-factory-27/">27 单机模型</a><a class="" href="../../learn/token-factory-28/">28 合同结算</a><a class="" href="../../learn/token-factory-29/">29 资本结构</a><a class="" href="../../learn/token-factory-30/">30 资金风险</a></details><details class="part"><summary><i>六</i>跨境结构<span class="n">6</span></summary><a class="" href="../../learn/token-factory-31/">31 主体结构</a><a class="" href="../../learn/token-factory-32/">32 监管坐标</a><a class="" href="../../learn/token-factory-33/">33 数据路径</a><a class="" href="../../learn/token-factory-34/">34 风险台账</a><a class="" href="../../learn/token-factory-35/">35 运营体系</a><a class="" href="../../learn/token-factory-36/">36 团队形态</a></details><details class="part"><summary><i>七</i>案例映射<span class="n">5</span></summary><a class="" href="../../learn/token-factory-37/">37 案例背景</a><a class="" href="../../learn/token-factory-38/">38 叙事流变</a><a class="" href="../../learn/token-factory-39/">39 论断映射</a><a class="" href="../../learn/token-factory-40/">40 核验方法</a><a class="" href="../../learn/token-factory-41/">41 待核清单</a></details><details class="part"><summary><i></i>附录<span class="n">4</span></summary><a class="" href="../../learn/token-factory-appendix-a/">A 术语对照</a><a class="" href="../../learn/token-factory-appendix-b/">B 公式误读</a><a class="" href="../../learn/token-factory-appendix-c/">C 数字口径</a><a class="" href="../../learn/token-factory-appendix-d/">D 证据账本</a></details></details></aside><main><h1>公式速查卡</h1><p class="meta"><span><a href="../llm-inference-acceleration-handbook/">LLM 推理加速：从 0 到 1 教学手册</a></span><span>约 9 分钟</span><span>更新于 2026-08-05</span></p><div class="doc"><p>LLM 推理加速
+从 0 到 1 教学手册</p>
+<p>给一个聪明的全职工程师，没有 AI 救场的情况下，能在客户面前讲透每个&quot;为什么&quot;。</p>
+<p>2026.05.12 内部备稿</p>
+<h2 id="s1">公式速查卡</h2>
+<p>客户面前现场推导用 · 把这张卡背下来，所有数字都能现场算出来</p>
+<h3>① H800 硬件常数</h3>
+<p>HBM 带宽 = 3 TB/s
+FP8 算力 = 2000 TFLOPS
+FP16 算力 = 1000 TFLOPS
+NVLink (SXM) = 400 GB/s
+PCIe 5.0 = 64 GB/s
+单卡显存 = 80 GB</p>
+<h3>② 算术强度阈值（最重要）</h3>
+<p>阈值 = 算力 ÷ 带宽
+= 2000 × 10¹² ÷ 3 × 10¹²
+≈ 333</p>
+<p>每字节算 &lt; 333 次 → memory-bound
+Decode 阶段每字节只算 1-2 次 → 必然 memory-bound
+Batch=333 是利用率到 100% 的甜点</p>
+<h3>③ 搬运时间公式</h3>
+<p>T搬运 = 模型字节数 ÷ HBM 带宽</p>
+<table>
+<thead>
+<tr>
+<th>模型/精度</th>
+<th>权重</th>
+<th>耗时</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>70B FP16</td>
+<td>140 GB</td>
+<td>46.7 ms</td>
+</tr>
+<tr>
+<td>70B FP8</td>
+<td>70 GB</td>
+<td>23.3 ms</td>
+</tr>
+<tr>
+<td>70B INT4</td>
+<td>35 GB</td>
+<td>11.7 ms</td>
+</tr>
+<tr>
+<td>235B FP8</td>
+<td>235 GB</td>
+<td>78 ms</td>
+</tr>
 </tbody></table>
-<div class="figure"><div class="fig-head"><span class="fnum">图 94</span>证据账本的使用闭环</div><svg preserveaspectratio="xMidYMid meet" viewbox="0 0 600 246" width="100%" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ar" markerheight="9" markerwidth="9" orient="auto" refx="7.5" refy="3"><path d="M0,0 L7.5,3 L0,6 z" fill="#4f86a0"></path></marker><marker id="arg" markerheight="9" markerwidth="9" orient="auto" refx="7.5" refy="3"><path d="M0,0 L7.5,3 L0,6 z" fill="#3d7a57"></path></marker><marker id="arr" markerheight="9" markerwidth="9" orient="auto" refx="7.5" refy="3"><path d="M0,0 L7.5,3 L0,6 z" fill="#c0524a"></path></marker><marker id="ark" markerheight="9" markerwidth="9" orient="auto" refx="7.5" refy="3"><path d="M0,0 L7.5,3 L0,6 z" fill="#888"></path></marker><marker id="ard" markerheight="9" markerwidth="9" orient="auto" refx="7.5" refy="3"><path d="M0,0 L7.5,3 L0,6 z" fill="#2f6f8f"></path></marker></defs><rect fill="#f5f5f5" height="52" rx="6" stroke="#e0e0e0" stroke-width="1" width="130" x="20" y="32"></rect><text fill="#1a1a1a" font-size="10.2" font-weight="700" text-anchor="middle" x="85.0" y="53.41">记录论断</text><text fill="#666" font-size="9.89" text-anchor="middle" x="85.0" y="68.18">原文与出处</text><line marker-end="url(#ar)" stroke="#4f86a0" stroke-width="1.4" x1="154" x2="166" y1="58.0" y2="58.0"></line><rect fill="#fdf4e4" height="52" rx="6" stroke="#f0dfc0" stroke-width="1" width="130" x="170" y="32"></rect><text fill="#1a1a1a" font-size="10.2" font-weight="700" text-anchor="middle" x="235.0" y="53.41">定级</text><text fill="#666" font-size="9.89" text-anchor="middle" x="235.0" y="68.18">三档之一</text><line marker-end="url(#ar)" stroke="#4f86a0" stroke-width="1.4" x1="304" x2="316" y1="58.0" y2="58.0"></line><rect fill="#f3f8fa" height="52" rx="6" stroke="#cfe0e8" stroke-width="1" width="130" x="320" y="32"></rect><text fill="#1a1a1a" font-size="10.2" font-weight="700" text-anchor="middle" x="385.0" y="53.41">挂章节</text><text fill="#666" font-size="9.89" text-anchor="middle" x="385.0" y="68.18">可回溯</text><line marker-end="url(#ar)" stroke="#4f86a0" stroke-width="1.4" x1="454" x2="466" y1="58.0" y2="58.0"></line><rect fill="#edf3ec" height="52" rx="6" stroke="#d3e3d6" stroke-width="1" width="130" x="470" y="32"></rect><text fill="#1a1a1a" font-size="10.2" font-weight="700" text-anchor="middle" x="535.0" y="53.41">关闭待核</text><text fill="#666" font-size="9.89" text-anchor="middle" x="535.0" y="68.18">拿到证据</text><path d="M85,106 L85,128 L515,128 L515,90" fill="none" marker-end="url(#ar)" stroke="#4f86a0" stroke-dasharray="4 3" stroke-width="1.4"></path><text fill="#666" font-size="10.35" text-anchor="middle" x="300" y="144">新证据到手后回写，等级可以升级也可以降级</text><line stroke="#eee" stroke-width="1" x1="20" x2="580" y1="162" y2="162"></line><text fill="#1a1a1a" font-size="10.81" font-weight="600" text-anchor="start" x="20" y="184">账本的价值不在记录本身，在于它把待核项变成有主的动作。</text><text fill="#555" font-size="10.81" text-anchor="start" x="20" y="206">没有账本时，待核项会在几次会议之后被默认为已核实，这是尽调失效最常见的方式。</text><text fill="#999" font-size="10.58" text-anchor="start" x="20" y="232">本册第 24 章的 N1 到 N7 与 F1 到 F6 已全部录入账本，状态为待核。</text></svg><div class="fig-note">账本随尽调进展更新，本册交付的是初始版本。</div><div class="fig-use">每条待核都有编号和动作，拿到证据就关掉。没关掉的，下次会议接着问。</div></div>
-<p>更新账本时不要覆盖旧结论：应新增来源、记录日期，把状态从待核升级为外部可核或存在冲突；来源失效或规则改变时也保留变更痕迹。证据账本存的是认知模型的当前状态，不是一次性的参考文献表。外部来源按回答问题的适配度排序：规则和主体看监管机关与法定文本，产品和接口看官方文档与价格页，系统机制看经验证论文，新闻和社媒只用于发现争议，不作为关键事实终点。一手来源也不能越界：厂商产品页能证明它公布了某项规格，不能证明录音中的集群用了该配置；论文能证明作者在指定实验里观察到结果，不能把加速倍数搬到未知环境。</p>
-
-<h2 id="s1">D.1 转写勘误</h2>
-<p>三段录音为自动转写，存在同音误写。下表的原则是原词负责可追溯，候选负责可检索：正文引用保留原词，候选写法用于检索公开资料；候选被一手材料证实前，不能替代证据。</p>
-<table class="wrap" data-cards="1">
-<thead><tr><th>原词或变体</th><th>候选写法</th><th>依据</th><th>置信度与限制</th></tr></thead>
-<tbody>
-<tr><td data-label="原词或变体">趋境；曲径、曲静、区境、曲晋、曲介、曲靖</td><td data-label="候选写法">趋境（疑似同一称谓）</td><td data-label="依据">原始录音主题明确写趋境</td><td data-label="置信度与限制">中；不据此确认工商主体</td></tr>
-<tr><td data-label="原词或变体">GP 300</td><td data-label="候选写法">候选 GB300</td><td data-label="依据">同场多次出现 GB300</td><td data-label="置信度与限制">中；引用仍保留原词</td></tr>
-<tr><td data-label="原词或变体">穆西 C500</td><td data-label="候选写法">候选沐曦 C500</td><td data-label="依据">中文发音近似</td><td data-label="置信度与限制">中；正式型号仍需产品资料</td></tr>
-<tr><td data-label="原词或变体">摩尔 S5000</td><td data-label="候选写法">摩尔 S5000（保留原词）</td><td data-label="依据">R1 00:11:32</td><td data-label="置信度与限制">低；具体型号不确定</td></tr>
-<tr><td data-label="原词或变体">投粉、图书工厂、TOWN</td><td data-label="候选写法">候选 Token、Token Factory</td><td data-label="依据">多处同音语境</td><td data-label="置信度与限制">高；首次引用同时展示原词</td></tr>
-<tr><td data-label="原词或变体">清晨极致、清城极智、青橙集市</td><td data-label="候选写法">疑似同一机构</td><td data-label="依据">上下文和发音近似</td><td data-label="置信度与限制">低；不确认正式名称</td></tr>
-<tr><td data-label="原词或变体">kimi k2.7、K3、GM5.2</td><td data-label="候选写法">保留原词</td><td data-label="依据">R1 多处</td><td data-label="置信度与限制">低；版本号待核验，不静默改为已知版本</td></tr>
+<h3>④ 计算时间公式</h3>
+<p>FLOPs per token ≈ 2 × 参数量
+T计算 = FLOPs ÷ 算力</p>
+<p>70B FP8，Decode 1 token：
+= 1.4×10¹¹ ÷ 2×10¹⁵ = 0.07 ms
+→ 占总耗时的 0.3%，搬运占 99.7%</p>
+<h3>⑤ GPU 利用率公式</h3>
+<p>利用率 = T计算 ÷ T实际
+= T计算 ÷ max(T计算, T搬运)</p>
+<p>Decode (batch=1)：0.07 / 23.3 = 0.3%
+Prefill (1000 tokens)：23.3 / 70 = 33%（实际 60-80%）</p>
+<h3>⑥ Batching 利用率（70B FP8）</h3>
+<table>
+<thead>
+<tr>
+<th>Batch</th>
+<th>利用率</th>
+<th>瓶颈</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>0.3%</td>
+<td>搬运</td>
+</tr>
+<tr>
+<td>32</td>
+<td>9.5%</td>
+<td>搬运</td>
+</tr>
+<tr>
+<td>128</td>
+<td>38%</td>
+<td>搬运</td>
+</tr>
+<tr>
+<td>333</td>
+<td>100%</td>
+<td>甜点</td>
+</tr>
+<tr>
+<td>512+</td>
+<td>—</td>
+<td>compute</td>
+</tr>
 </tbody></table>
-
-<h2 id="s2">D.2 人物机构</h2>
-<p>下表只保留与行业角色、方案或证据路线有关的名字。姓名来自转写，不代表本册确认其身份、职务或与某机构的正式关系；称呼不足以唯一识别人，若后续用于合同、尽调或公开发布，应由资料提供者补充正式姓名和授权范围。</p>
-<table class="wrap" data-cards="1">
-<thead><tr><th>转写称呼</th><th>录音中的相关语境</th></tr></thead>
-<tbody>
-<tr><td data-label="转写称呼">关总</td><td data-label="录音中的相关语境">方案主导、行业判断和基金结构讨论</td></tr>
-<tr><td data-label="转写称呼">嘉伟／佳伟</td><td data-label="录音中的相关语境">商务战略、方案讨论和组织角色；可能与关总为同一人，也可能不是</td></tr>
-<tr><td data-label="转写称呼">付成龙</td><td data-label="录音中的相关语境">认识路径、行业信息与后续联系</td></tr>
-<tr><td data-label="转写称呼">陈总</td><td data-label="录音中的相关语境">出海与大客户角色的介绍</td></tr>
-<tr><td data-label="转写称呼">周宇</td><td data-label="录音中的相关语境">技术、产能、海外角色和会后复盘</td></tr>
+<h3>⑦ KV Cache 占用（70B）</h3>
+<p>FP16: 320 KB / token
+FP8: 160 KB / token</p>
+<table>
+<thead>
+<tr>
+<th>上下文</th>
+<th>FP16</th>
+<th>FP8</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2K</td>
+<td>0.6 GB</td>
+<td>0.3 GB</td>
+</tr>
+<tr>
+<td>32K</td>
+<td>10 GB</td>
+<td>5 GB</td>
+</tr>
+<tr>
+<td>128K</td>
+<td>40 GB</td>
+<td>20 GB</td>
+</tr>
 </tbody></table>
-<p>录音涉及的机构与产品（趋境及其变体、智谱、Kimi、硅基候选、清晨相关变体、NVIDIA、AMD、华为、沐曦候选、摩尔线程候选、OpenRouter、GMI、首都在线、天宽）在本册中的处理原则一致：录音只证明它们被讨论过，涉及规模、客户、订单、股权和合作的说法一律不由录音升级为事实；产品规格与机制另用官方来源核验。</p>
-<p>本册为行业认知材料，不含合作建议、投资建议或法律结论。涉及具体交易、结构与合规的判断，请取得专业意见。</p>
-</div><h2>修订记录</h2><table><tr><th>日期</th><th>改了什么</th><th>为什么</th><th>谁</th></tr><tr><td>2026-08-04</td><td>按章导入，正文与插图保持原样</td><td>原稿结构清晰，重写反而损失信息</td><td>工程</td></tr></table><div class="nav"><a href="../token-factory-appendix-c/"><span>上一章</span>C 数字口径</a><span></span></div></main><div class="rail"></div></div>
+<h3>⑧ 吞吐 / 延迟 / 首字</h3>
+<p>TPOT = T搬运 = 23 ms (70B FP8)
+吞吐 = batch ÷ TPOT
+TTFT = prompt × 2 × 参数 ÷ 算力
+Ttotal = TTFT + TPOT × 输出长度</p>
+<p>例：1000 token 输入 + 500 输出 = 70ms + 23×500 = 11.7 s</p>
+<h3>⑨ 跨机通信：10 GB KV Cache 传输耗时</h3>
+<table>
+<thead>
+<tr>
+<th>网络</th>
+<th>带宽</th>
+<th>耗时</th>
+<th>网络</th>
+<th>带宽</th>
+<th>耗时</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>10 GbE</td>
+<td>1.25 GB/s</td>
+<td>8000 ms</td>
+<td>IB HDR 200Gb</td>
+<td>25 GB/s</td>
+<td>400 ms</td>
+</tr>
+<tr>
+<td>100 GbE</td>
+<td>12.5 GB/s</td>
+<td>800 ms</td>
+<td>IB NDR 400Gb</td>
+<td>50 GB/s</td>
+<td>200 ms</td>
+</tr>
+<tr>
+<td>NVLink (同机)</td>
+<td>400 GB/s</td>
+<td>25 ms</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>→ 不上 IB，分离式部署收益被网络吃光</p>
+<h3>⑩ 一张图记住所有逻辑</h3>
+<p>搬运时间 = 模型大小 ÷ 带宽 ← 物理下限
+计算时间 = 2 × 参数量 × tokens ÷ 算力 ← 算力消耗
+利用率 = 计算时间 ÷ max(计算, 搬运) ← 浪费率
+甜点 batch = 算力 ÷ 带宽 ≈ 333 ← 平衡点</p>
+<p>所有加速技术都在动这 4 个变量之一：量化缩小搬运分子 · Batching 填满搬运的算力 · 投机解码让一次搬运算多 token · PagedAttention/Prefix Caching 装下更大 batch · 分离式部署让 Prefill/Decode 各跑甜点</p>
+<h2 id="s2">知识点全景图</h2>
+<p>整本手册的&quot;骨架&quot;。每一层回答上一层留下的问题，下一层接住这一层留下的问题。读完这一页，再翻细节。</p>
+<p>① 物理直觉 为什么慢 → ② 量化公式 数字怎么来 → ③ 加速技术 怎么变快 → ④ 多卡协同 单卡不够 → ⑤ 工程落地 用什么 → ⑥ 沟通弹药 怎么讲</p>
+<p>所有内容围绕的根问题：LLM 推理 95% 时间花在 Decode，而 Decode 阶段 GPU 算力 95% 闲置。全书每一层都是在攻击这个事实的一个侧面。</p>
+<h3>LAYER 1 物理直觉 · 为什么会慢</h3>
+<p>问：GPU 算力这么强，为什么 LLM 推理慢？　 答：算力强不等于搬运快，且 Decode 是串行的。</p>
+<ul>
+<li>算力 vs 带宽失衡：算力 ≈ HBM 带宽 × 300 倍，搬运是真正的瓶颈</li>
+<li>自回归生成：一次只预测 1 个 token，整个模型权重每生成 1 token 都要搬一次</li>
+<li>Prefill / Decode 两阶段异构：Prefill compute-bound（利用率 60-80%），Decode memory-bound（利用率 1-5%）</li>
+<li>KV Cache：让自回归从 O(N²) 降到 O(N)，但占大量显存，是后续显存优化的核心战场</li>
+</ul>
+<p>留给下一层：&quot;95% 闲置&quot; &quot;23 毫秒&quot; &quot;33% 利用率&quot; 这些数字到底怎么算的？</p>
+<h3>LAYER 2 量化公式 · 数字怎么来的</h3>
+<p>问：怎么证明 Decode 一定是 memory-bound？怎么算最佳 batch？　 答：4 个公式 + 1 个阈值。</p>
+<ul>
+<li>搬运时间：模型字节数 ÷ 带宽（70B FP8 ÷ 3 TB/s = 23 ms，物理下限）</li>
+<li>计算时间：2 × 参数量 × tokens ÷ 算力（Decode 单 token 只要 0.07 ms）</li>
+<li>GPU 利用率：计算时间 ÷ max(计算, 搬运)</li>
+<li>算术强度阈值 333：Batch &lt; 333 → memory-bound，Batch = 333 是利用率打满的甜点</li>
+</ul>
+<p>留给下一层：既然瓶颈是搬运和利用率，怎么动这两个变量去加速？</p>
+<h3>LAYER 3 加速技术 · 怎么攻击根问题</h3>
+<p>问：具体有哪些技术？各自攻击哪个变量？　 答：三个家族，对应三种攻击。</p>
+<ul>
+<li>家族一 · 减少搬运分子：FP8 / INT4 权重量化、KV Cache 量化（H800 上 FP8 是免费午餐，速度 ~2x）</li>
+<li>家族二 · 用闲置算力：Continuous Batching（3-10x）、Speculative Decoding（~3x）、编译优化（15-30%）</li>
+<li>家族三 · 管好 KV Cache：PagedAttention（浪费 60-80% → &lt;5%）、Prefix Caching / RadixAttention（MaaS 王者）、FlashAttention、KV Offloading</li>
+</ul>
+<p>留给下一层：单卡叠满所有技术后，模型装不下 / 并发不够怎么办？</p>
+<h3>LAYER 4 多卡协同 · 单卡装不下时</h3>
+<p>问：多卡之间怎么协作？通信瓶颈怎么破？　 答：四种并行 + 分离式部署 + IB。</p>
+<ul>
+<li>通信带宽层级：HBM 3TB/s &gt; NVLink 400GB/s &gt; IB 50GB/s &gt; PCIe 64GB/s（决定切法）</li>
+<li>四种并行（按优先级 DP &gt; EP &gt; TP &gt; PP）：能用 DP 不用 TP；TP 只能同机；EP 给 MoE 用；PP 跨机</li>
+<li>分离式部署：Prefill / Decode 分到不同节点池，单 token 成本省 30-50%（256 卡级别的关键架构决策）</li>
+<li>InfiniBand：RDMA / GPUDirect 让 KV Cache 跨机传输不卡顿，不上 IB 分离式部署就废了</li>
+</ul>
+<p>留给下一层：这些技术 + 架构怎么落地成可运行的软件？</p>
+<h3>LAYER 5 工程落地 · 用哪个引擎</h3>
+<p>问：所有技术打包成软件后，选哪个？　 答：三引擎对比 + 分阶段上。</p>
+<ul>
+<li>vLLM：行业标准，最易上手，模型支持最广 → baseline 首选</li>
+<li>SGLang：RadixAttention，多轮对话 / MaaS 王者，比 vLLM 快 30%</li>
+<li>TensorRT-LLM：编译优化天花板，但编译要 20-30 分钟、模型变了要重编</li>
+<li>头部厂商真实路线：Anthropic 走软件（激进投机解码）/ OpenAI 走新硬件 + 蒸馏（Cerebras）</li>
+<li>三阶段方案：vLLM baseline → SGLang 主引擎 → TensorRT-LLM 针对性优化</li>
+</ul>
+<p>留给下一层：这些东西怎么跟客户讲清楚、讲得有说服力？</p>
+<h3>LAYER 6 沟通弹药 · 客户面前怎么讲</h3>
+<p>问：怎么让客户既听懂、又信服？　 答：必背数字 + 心智模型 + 四句话答题法。</p>
+<ul>
+<li>必背数字：3 TB/s · 2000 TFLOPS · 333 · 70 GB · 23 ms · 2×参数量</li>
+<li>一句话心智模型：95% 时间在 Decode，95% 算力闲着，所有技术都在攻击这个事实</li>
+<li>四句话答题法：结论 1 句 + 推导 2-3 句 + 代价/边界 1 句（不要只给结论）</li>
+<li>现场推导模板：客户问&quot;能跑多快&quot;→ 套搬运公式 → 套 batch 公式 → 给出收益和代价</li>
+</ul>
+<p>使用方式：开会前 5 分钟翻这一页对全局做最后校准 · 被客户问到具体技术时翻对应 Layer · 公式记不住时翻&quot;公式速查卡&quot; · 讲不下去时回到 Layer 6 的&quot;四句话答题法&quot;。</p>
+</div><h2>修订记录</h2><table><tr><th>日期</th><th>改了什么</th><th>为什么</th><th>谁</th></tr><tr><td>2026-08-05</td><td>从整篇拆成第 1/6 章，正文未改动</td><td>整篇 44 分钟读不完，拆成每章 20 分钟以内</td><td>工程</td></tr></table><div class="nav"><span></span><a class="next" href="../llm-inference-acceleration-handbook-02/"><span>下一章</span>第一部分：先建立物理直觉</a></div></main><div class="rail"></div></div>
 <footer>共 51 篇 · 内容自动生成，有问题在飞书里 @AI小助手</footer>
 <script>const BASE="../../";
 const B=document.getElementById('burger'),A=document.querySelector('aside');

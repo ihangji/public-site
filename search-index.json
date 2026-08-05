@@ -1,10 +1,10 @@
 [
  {
-  "slug": "llm-inference-acceleration",
-  "title": "推理加速",
-  "summary": "大模型回答慢的根源是搬运数据，不是算得慢。所有加速技术都在解决这一个问题。",
-  "track": "ai-basics",
-  "updated": "2026-08-04"
+  "slug": "llm-inference-acceleration-handbook-01",
+  "title": "公式速查卡",
+  "summary": "① H800 硬件常数 · ② 算术强度阈值（最重要） · ③ 搬运时间公式 · ④ 计算时间公式",
+  "track": "eng",
+  "updated": "2026-08-05"
  },
  {
   "slug": "token-factory-01",
@@ -14,11 +14,25 @@
   "updated": "2026-08-04"
  },
  {
+  "slug": "llm-inference-acceleration-handbook-02",
+  "title": "第一部分：先建立物理直觉",
+  "summary": "GPU 为什么\"慢\" · 模型在 GPU 里长什么样 · LLM 是怎么\"说话\"的（自回归生成） · 推理的两个阶段：P",
+  "track": "eng",
+  "updated": "2026-08-05"
+ },
+ {
   "slug": "token-factory-02",
   "title": "2 需求起点",
   "summary": "变现困局 · 编程拐点 · 需求曲线 · 开源前提",
   "track": "eng",
   "updated": "2026-08-04"
+ },
+ {
+  "slug": "llm-inference-acceleration-handbook-03",
+  "title": "第二部分：核心计算公式速记表",
+  "summary": "硬件常数（必须脱口而出） · 搬运时间（Memory Movement Time） · 计算时间（Compute Tim",
+  "track": "eng",
+  "updated": "2026-08-05"
  },
  {
   "slug": "token-factory-03",
@@ -28,6 +42,13 @@
   "updated": "2026-08-04"
  },
  {
+  "slug": "llm-inference-acceleration-handbook-04",
+  "title": "第三部分：加速技术的三大家族",
+  "summary": "家族一：减少搬运 · 家族二：把闲置的算力用起来 · 问题 · 解决方案",
+  "track": "eng",
+  "updated": "2026-08-05"
+ },
+ {
   "slug": "token-factory-04",
   "title": "4 推理成业",
   "summary": "独立成业 · 工程六问 · 持续交付 · 两岸会合",
@@ -35,11 +56,25 @@
   "updated": "2026-08-04"
  },
  {
+  "slug": "llm-inference-acceleration-handbook-05",
+  "title": "第四部分：多卡 / 多机协同",
+  "summary": "卡间通信瓶颈 · 某型号卡的 NVLink 阉割版 · 四种并行方式 · 分离式部署（Disaggregated Ser",
+  "track": "eng",
+  "updated": "2026-08-05"
+ },
+ {
   "slug": "token-factory-05",
   "title": "5 计量链路",
   "summary": "两条链路 · 四层条件 · 计量反馈 · 三个分母 · 账务实现",
   "track": "eng",
   "updated": "2026-08-04"
+ },
+ {
+  "slug": "llm-inference-acceleration-handbook-06",
+  "title": "第五部分：推理引擎选型",
+  "summary": "推理引擎到底是什么 · 三个主流引擎 · OpenAI / Anthropic 实际在用什么 · 三步走选型方案",
+  "track": "eng",
+  "updated": "2026-08-05"
  },
  {
   "slug": "token-factory-06",
@@ -318,13 +353,6 @@
   "slug": "token-factory-appendix-d",
   "title": "D 证据账本",
   "summary": "回到三段录音，逐条检查主张、证据、条件和仍然空着的位置。",
-  "track": "eng",
-  "updated": "2026-08-04"
- },
- {
-  "slug": "llm-inference-acceleration-handbook",
-  "title": "LLM 推理加速：从 0 到 1 教学手册",
-  "summary": "LLM 推理 95% 时间花在 Decode，而 Decode 阶段 GPU 算力 95% 闲置。",
   "track": "eng",
   "updated": "2026-08-04"
  }
